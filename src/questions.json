@@ -1,0 +1,38 @@
+{
+    "age": {
+        "question": "How old are you?",
+        "choices": ["Under 14", "Between 14-40", "Between 41-60", "Over 61"]
+    },
+    "bmi": {
+        "question": "Is your BMI under or over 40?",
+        "choices": ["Under", "Over"]
+    },
+    "goals-14-60": {
+        "question": "Mark the choices that best match your fitness goals.",
+        "choices": ["Build muscle", "Gain strength", "Lose weight", "Improve health"]
+    },
+    "goals-other": {
+        "question": "Mark the choices that best match your fitness goals.",
+        "choices": ["Gain muscle/strength", "Lose weight", "Improve health"]
+    },
+    "muscle-or-strength": {
+        "question": "While they do go hand in hand, would you want to focus on gaining muscle or strength?",
+        "choices": ["Muscle", "Strength"]
+    },
+    "swimming": {
+        "question": "Are you fine with being in water?",
+        "choices": ["Yes", "No"]
+    },
+    "cycling": {
+        "question": "Do you enjoy riding a bike or want to learn how to ride a bike?",
+        "choices": ["Yes", "No"]
+    },
+    "high-intensity-cardio": {
+        "question": "Would you be interested in high intensity cardio?",
+        "choices": ["Yes", "No"]
+    },
+    "weights": {
+        "question": "Would you be interested in training with weights?",
+        "choices": ["Yes", "No"]
+    }
+}
