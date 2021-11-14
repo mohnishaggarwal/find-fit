@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function Regime() {
     return (
@@ -8,4 +8,4 @@ function Regime() {
     )
 }
 
-export default Regime
+export default Regime;

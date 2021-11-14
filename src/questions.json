@@ -15,6 +15,30 @@
         "question": "Mark the choices that best match your fitness goals.",
         "choices": ["Gain muscle/strength", "Lose weight", "Improve health"]
     },
+    "injuries-under14-BMI-under-40": {
+        "question": "Question injuries-under14-BMI-under-40",
+        "choices": ["Yes", "No"]
+    },
+    "injuries-under14-BMI-over-40": {
+        "question": "Question injuries-under14-BMI-over-40",
+        "choices": ["Yes", "No"]
+    },
+    "injuries-14-60-BMI-under-40": {
+        "question": "Question injuries-14-60-BMI-under-40",
+        "choices": ["Yes", "No"]
+    },
+    "injuries-14-60-BMI-over-40": {
+        "question": "Question injuries-14-60-BMI-over-40",
+        "choices": ["Yes", "No"]
+    },
+    "injuries-over61-BMI-under-40": {
+        "question": "Question injuries-over61-BMI-under-40",
+        "choices": ["Yes", "No"]
+    },
+    "injuries-over61-BMI-over-40": {
+        "question": "Question injuries-over61-BMI-over-40",
+        "choices": ["Yes", "No"]
+    },
     "muscle-or-strength": {
         "question": "While they do go hand in hand, would you want to focus on gaining muscle or strength?",
         "choices": ["Muscle", "Strength"]
