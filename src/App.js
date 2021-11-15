@@ -1,4 +1,5 @@
 import './App.css';
+import './home.css';
 import React, { useReducer } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './screens/Home';
