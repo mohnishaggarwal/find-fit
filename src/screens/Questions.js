@@ -46,15 +46,28 @@ function Questions() {
 
     return (
         <div>
-            <p>This is the page where we ask questions</p>
-            <p>{question}</p>
-            <button onClick={last}>Last question</button>
-            {
-                answers.map((ans, idx) => {
-                    return <button key={idx} onClick={() => {selectAns(ans)}}>{ans}</button>
-                })
-            }
-            <button onClick={next}>Next question</button>
+            <div className='questions-container'>
+                <div className='questions-question-box'>
+                    {question}
+                </div>
+                <div className="form-check">
+                {
+                    answers.map((ans, idx) => {
+                        // return <button key={idx} onClick={() => {selectAns(ans)}}>{ans}</button>
+                        return <div key={idx} onClick={() => {selectAns(ans)}}>
+                                    <input className="form-check-input" type="radio" name="flexRadioDefault" id={ans} checked={ans === selectedAns} onChange={() => {selectAns(ans)}}/>
+                                    <label className="form-check-label" htmlFor="answers">
+                                        {ans}
+                                    </label>
+                                </div>
+                               
+                    })
+                }
+                 </div>            
+                <br/>
+                <button onClick={last}>Last question</button>
+                <button onClick={next}>Next question</button>
+            </div>
         </div>  
     )
 }
