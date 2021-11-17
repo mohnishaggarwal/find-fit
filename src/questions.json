@@ -44,11 +44,11 @@
         "choices": ["Muscle", "Strength"]
     },
     "swimming": {
-        "question": "Are you fine with being in water?",
+        "question": "Have you ever swam?",
         "choices": ["Yes", "No"]
     },
     "cycling": {
-        "question": "Do you enjoy riding a bike or want to learn how to ride a bike?",
+        "question": "Have you ever ridden a bike?",
         "choices": ["Yes", "No"]
     },
     "high-intensity-cardio": {

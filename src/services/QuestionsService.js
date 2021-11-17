@@ -2,8 +2,6 @@ const questions = require('./../questions.json');
 
 const QuestionsService = {
     nextQuestion: (qaState, qaDispatch, selectedAns) => {
-        console.log(qaState.QAs[qaState.qaIdx].question);
-        console.log(qaState.qaIdx);
         if (qaState.qaIdx === 0) {
             qaDispatch({type: 'set_answer', payload: selectedAns});
             qaDispatch({type: 'add_QA', payload: questions.bmi});
@@ -53,7 +51,6 @@ const QuestionsService = {
             qaDispatch({type: 'update_qaIdx', payload: 1})
         }
         else if (qaState.qaIdx === 3) {
-            console.log("Getting here")
             qaDispatch({type: 'set_answer', payload: selectedAns});
             qaDispatch({type: 'add_QA', payload: questions.swimming});
             qaDispatch({type: 'update_qaIdx', payload: 1})
@@ -79,7 +76,10 @@ const QuestionsService = {
             qaDispatch({type: 'update_qaIdx', payload: 1})
         }
         else {
+            qaDispatch({type: 'set_answer', payload: selectedAns});
             console.log("Matching time");
+            console.log(qaState);
+            return 1;
         }
     },
     lastQuestion: (qaDispatch) => {
