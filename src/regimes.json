@@ -1,0 +1,276 @@
+{
+    "bodybuilding":{
+        "description": "Bodybuilding is the act and practice of enhancing one's physical form. It's done through weightlifting and proper nutrition. 'Bodybuilding itself is the process of enhancing the body's muscle and symmetry and the promotion of overall health and fitness,' says Kollath, adding that bodybuilding as a competitive sport is 'the pursuit of the 'ultimate' physique that is symmetrical from top to bottom. It is the sport of aesthetics.'",
+        "schedule": {
+            "display_type": "daily",
+            "schema": {
+                "warmup": ["exercise", "sets", "reps"],
+                "main_workout": ["exercise", "sets", "reps"]
+            },
+            "routine": [
+                { 
+                    "warmup": [],
+                    "main_workout":
+                    [
+                        ["Bench press",	        "4",    "6-8"],
+                        ["Military press",		"3"	,	"8-10"],
+                        ["Tricep extensions",	"3",    "10-12"]
+                    ]
+                },
+                {
+                    "warmup": [],
+                    "main_workout":
+                    [
+                        ["Lat pull downs",  "3",	"8-10"],
+                        ["Rows",            "3",    "8-10"],
+                        ["Face pulls",	    "3",    "12-15"],
+                        ["Bicep curls",		"3",    "10-12"]
+                    ]
+                },
+                {
+                    "warmup": [],
+                    "main_workout":
+                    [
+                        ["Squats",			"4",    "6-8"],
+                        ["Leg press",	    "4",	"8-10"],
+                        ["Quad raises",		"3",	"10-12"],
+                        ["Hamstring curls",	"3",	"10-12"]
+                    ]
+                }
+            ]
+        },
+        "links": 
+        [
+            "https://www.bodybuilding.com/",
+            "https://www.menshealth.com/uk/building-muscle/a759236/complete-guide-to-bodybuilding/",
+            "https://www.youtube.com/user/gregdoucette"
+        ]
+    },
+
+    "powerlift":{
+        "description": "Powerlifting is a strength sport aimed at maximizing the total amount of weight one can lift. Individuals who powerlift are focused on strength and functional performance as opposed to physique. Strength is measured through three main exercises: Squat, Bench, Deadlift. These exercises are compound movements that target a wide array of muscles. Powerlifting is about achieving the maximum possible squat, bench, and deadlift that one’s genetics allows for. Even though powerlifting is about maximizing the weight on the bar, these movements do have a learning curve. It is very important to worry about technique instead of weight when one first starts powerlifting.",
+        "schedule": {
+            "display_type": "daily",
+            "schema": {
+                "warmup": ["exercise", "sets", "time (s)"],
+                "main_workout": ["exercise", "sets", "reps"]
+            },
+            "routine": [
+                {
+                    "warmup": 
+                    [
+                        ["Standing quad stretch",	"3",	"30"],
+                        ["Box stretch",				"3",	"30"],
+                        ["Air squats",				"3",	"30"]
+                    ],
+                    "main_workout": 
+                    [
+                        ["Barbell squat",			"5",	"5"],
+                        ["Barbell pause squat",		"5",	"3"],
+                        ["Lat pulldown",			"3",	"10"]
+                    ]
+                },
+                {
+                    "warmup":
+                    [
+                        ["Dumbbell flyes", 			    "3",	"30"],
+                        ["Overhead tricep extension",	"3",	"30"]
+                    ],
+                    "main_workout":
+                    [
+                        ["Bench press",				"5",		"5"],
+                        ["Close grip bench press",	"5",		"3"],
+                        ["Tricep pushdowns",		"5",		"10"]		
+                    ]
+                },
+                {
+                    "warmup":
+                    [
+                        ["Lunge",			"2",	"30 seconds"],
+                        ["Goblet squats",	"2",    "30 seconds"]
+                    ],
+                    "main_workout":
+                    [
+                        ["Deadlift",			"5",	"5"],
+                        ["Deadlift 3ct pause",	"5",	"3"],
+                        ["Bent over rows",		"3",	"10"],
+                        ["Situps",				"1",	"100"]
+                    ]
+                }
+            ]
+        },
+        "links": 
+        [
+            "https://www.coachmag.co.uk/barbell-exercises/5888/how-to-start-powerlifting",
+            "https://powerliftingtechnique.com/how-to-start-powerlifting/",
+            "https://www.youtube.com/c/AlanThrall/featured,"
+        ]
+    },
+
+    "swimming":{
+        "description": "Swimming is an individual or team racing sport that requires the use of one's entire body to move through water. The sport takes place in pools or open water (e.g., in a sea or lake). Some popular swimming strokes include the butterfly, backstroke, breaststroke, freestyle, and individual medley. Swimming is a low impact and safe sport that can be continued lifelong. Swimming both helps gain muscle and build endurance with many health benefits associated.",
+        "schedule": {
+            "display_type": "daily",
+            "schema": {
+                "warmup": ["Focus", "duration", "rest time (sec)"],
+                "main_workout": ["Focus", "duration (sec)", "rest time (sec)"]
+            },
+            "routine": 
+            [
+                {
+                    "warmup": [],
+                    "main_workout": [
+                        ["Smooth swimming with minimal splashs", "50", "30-60"],
+                        ["Fingertip entry", "50", "30-60"],
+                        ["Taller swimming (stretch out on each stroke", "50", "30-60"],
+                        ["Rotation of hips", "50", "30-60"],
+                        ["Keeping head down.", "50", "30-60"],
+                        ["Silent swimming (use all 5 senses to listen to the sounds your strokes make", "50", "30-60"]
+                    ]
+                },
+                {
+                    "warmup": 
+                    [
+                        ["Swim 25 yards at an easy pace with your stroke of choice. Repeat 4 times", "Variable", "20"]
+                    ],
+                    "main_workout": [
+                        ["Swim 100-yard freestyles at your average pace. Repeat 4 times", "Variable", "30"],
+                        ["Swim 200-yard freestyles at a moderate pace with a pull buoy and/or paddles.", "Variable", "30"],
+                        ["Swim with a kickboard for 25 yards. Repeat 8 times", "Variable", "15"],
+                        ["Swim 100 yards as fast as you can with your stroke of choice.", "Variable", "0"],
+                        ["Swim 100 yards at an easy pace with your stroke of choice.", "Variable", "0"]
+                    ]
+                },
+                {
+                    "warmup": 
+                    [
+                        ["Swim 100 yards at an easy pace with your stroke of choice.", "Variable", "0"]
+                    ],
+                    "main_workout": [
+                        ["Alternate 50-yard freestyles and swimming 50 yards with a kickboard and pull buoy (easy pace). Repeat two to four times", "Variable", "0"],
+                        ["Swim 1-minute freestyles. Repeat 4 times", "Variable", "Remaining time for each interval"],
+                        ["Swim 100 yards at an easy pace with your stroke of choice.", "Variable", "0"]
+                    ]
+                }
+            ]
+        },
+        "links": 
+        [
+            "https://www.healthline.com/health/exercise-fitness/how-to-swim",
+            "https://www.livestrong.com/article/197700-how-can-i-learn-to-swim-by-myself/",
+            "https://www.usms.org/fitness-and-training/articles-and-videos/articles/how-to-swim-freestyle-in-the-pool-or-open-water"
+        ]
+    },
+
+    "running":{
+        "description": "Running is a method of working out that aims at building on cardiovascular endurance. It helps build strong bones as it is a weight bearing exercise, strengthens muscles, burn calories, and maintains a healthy weight. Running is a unique form of exercise as it requires no equipment to get started!",
+        "schedule": {
+            "display_type": "weekly",
+            "routine": 
+            [
+                ["15 mins"], ["25 mins"], ["Rest or 15 mins"], ["25 mins"], ["Rest"], ["35 mins"], ["Rest"],
+                ["15 mins"], ["28 mins"], ["Rest or 15 mins"], ["28 mins"], ["Rest"], ["38 mins"], ["Rest"],
+                ["20 mins"], ["30 mins"], ["Rest or 15 mins"], ["30 mins"], ["Rest"], ["40 mins"], ["Rest"],
+                ["20 mins"], ["35 mins"], ["Rest or 15 mins"], ["35 mins"], ["Rest"], ["45 mins"], ["Rest"],
+                ["20 mins"], ["40 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["50 mins"], ["Rest"],
+                ["20 mins"], ["40 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["55 mins"], ["Rest"],
+                ["20 mins"], ["45 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["60 mins"], ["Rest"]
+            ]
+        },
+        "links": 
+        [
+            "https://therunexperience.com/how-to-run-correctly-running-form-tips-and-techniques/",
+            "https://www.runnersworld.com/",
+            "https://www.runnersblueprint.com/"
+        ]
+    },
+
+    "cycling":{
+        "description": "Cycling, also called bicycling or biking, is the use of bicycles for transport, recreation, exercise or sport. Cycling provides a variety of health benefits. The World Health Organization (WHO) states that cycling can reduce the risk of cancers, heart disease, and diabetes that are prevalent in sedentary lifestyles. Cycling on stationary bikes have also been used as part of rehabilitation for lower limb injuries, particularly after hip surgery. Individuals who cycle regularly have also reported mental health improvements, including less perceived stress and better vitality.",
+        "schedule": {
+            "display_type": "weekly",
+            "routine": 
+            [
+                ["REST DAY"], 
+                ["5 min @ Z1", "35 min @Z2", "5 min @Z2"],
+                ["1 hour duration. Choose from:", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                ["5 min @Z1", "35 min @Z2", "5 min @Z2"],
+                ["REST DAY"],
+                ["1 hour duration. Choose from:", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                ["10min @Z1", "1 hr 10min @Z2", "10 min @Z1"],
+                ["REST DAY"], 
+                ["5 min @ Z1", "50 min @Z2", "5 min @Z2"],
+                ["1 hour duration. Choose from:", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                ["5 min @Z1", "50 min @Z2", "5 min @Z2"],
+                ["REST DAY"],
+                ["1 hour duration. Choose from:", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                ["10min @Z1", "1 hr 45min @Z2", "10 min @Z1"],
+                ["REST DAY"], 
+                ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
+                ["1 hour duration. Choose from:", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                ["5 min @Z1", "50 min @Z2", "5 min @Z2"],
+                ["REST DAY"],
+                ["1 hour duration. Choose from:", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                ["10min @Z1", "1 hr 40min @Z2", "10 min @Z1"],
+                ["REST DAY"],
+                ["REST DAY"],
+                ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
+                ["1 hour duration. Choose from:", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                ["10 min @Z1", "45 min @Z3", "5 min @Z1"],
+                ["REST DAY"],
+                ["10min @Z1", "1 hr 55min @Z2", "10 min @Z1"],
+                ["REST DAY"], 
+                ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
+                ["1 hour duration. Choose from:", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                ["10 min @Z1", "45 min @Z3", "5 min @Z1"],
+                ["REST DAY"],
+                ["10min @Z1", "1 hr 10min @Z2", "10 min @Z1"],
+                ["10min @Z1", "1 hr 55min @Z2", "10 min @Z1"]
+            ]
+        },
+        "links": 
+        [
+            "https://www.wikihow.com/Ride-a-Bicycle",
+            "https://www.bicycling.com/training/a20027599/how-to-start-cycling/",
+            "https://www.cyclingweekly.com/"
+        ]
+    },
+
+    "crossfit":{
+        "description": "CrossFit is a lifestyle characterized by safe, effective exercise and sound nutrition. CrossFit can be used to accomplish any goal, from improved health to weight loss to better performance. The program works for everyone — people who are just starting out and people who have trained for years.",
+        "schedule": {
+            "display_type": "daily",
+            "schema": {
+                "warmup": [],
+                "main_workout": ["exercise"]
+            },
+            "routine": 
+            [
+                ["10 - 1 kettlebell swings (10 kettlebell swings, rest, 9 swings, rest, etc.)", "10-1 pushups rows", "Half mile run"],
+                ["5 rounds of 12 front squats with a barbell", "5 rounds of quarter mile run"],
+                ["10 minutes of as many 10 kettlebell swings, 10 box jumps (jump up onto a 12 to 20 inch tall box or step), 20 pushups"]
+
+            ]
+        },
+        "links": 
+        [
+            "https://www.nerdfitness.com/blog/a-beginners-guide-to-crossfit/",
+            "https://www.crossfit.com/",
+            "https://www.crossfitenclave.com/"
+
+        ]
+    },
+
+    "calisthenics":{
+        "description": "",
+        "schedule": {
+            "display_type": "",
+            "schema": {
+                "warmup": ["exercise", "sets", "time"],
+                "main_workout": ["exercise", "sets", "reps"]
+            },
+            "routine": []
+        },
+        "links": []
+    }
+}
