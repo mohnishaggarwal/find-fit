@@ -11,6 +11,7 @@ function Questions() {
 
     function next() {
         //console.log(selectedAns);
+        console.log(qaState);
         if (qaState.qaIdx === 3) {
             QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
         }
@@ -19,12 +20,19 @@ function Questions() {
         }
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
+        if(qaState.QAs[qaState.qaIdx].answer !== undefined){
+            setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
+        }
+        else{
+            setSelectedAns('');
+        }
     }
 
     function last() {
         QuestionsService.lastQuestion(qaDispatch);
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
+        setSelectedAns(qaState.QAs[qaState.qaIdx].answer)
         //console.log(qaState.QAs);
     }
 
@@ -52,10 +60,11 @@ function Questions() {
                 </div>
                 <div className="form-check">
                 {
+                    
                     answers.map((ans, idx) => {
-                        // return <button key={idx} onClick={() => {selectAns(ans)}}>{ans}</button>
+                        // console.log(context.qaState.QAs[context.qaState.qaIdx].answer);
                         return <div key={idx} onClick={() => {selectAns(ans)}}>
-                                    <input className="form-check-input" type="radio" name="flexRadioDefault" id={ans} checked={ans === selectedAns} onChange={() => {selectAns(ans)}}/>
+                                    <input className="form-check-input" type="radio" name="flexRadioDefault" id={ans} checked={(qaState.QAs[qaState.qaIdx] !== undefined && qaState.QAs[qaState.qaIdx].answer === ans) || ans === selectedAns} onChange={() => {selectAns(ans)}}/>
                                     <label className="form-check-label" htmlFor="answers">
                                         {ans}
                                     </label>
@@ -65,7 +74,11 @@ function Questions() {
                 }
                  </div>            
                 <br/>
-                <button onClick={last}>Last question</button>
+                {
+                    (qaState !== undefined && qaState.qaIdx !== 0) && 
+                    <button onClick={last}>Last question</button>
+                    
+                }
                 <button onClick={next}>Next question</button>
             </div>
         </div>  
