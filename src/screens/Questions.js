@@ -41,6 +41,9 @@ function Questions() {
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
         setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
+        if (qaState.qaIdx === 3) {
+            setMultChoices(qaState.QAs[qaState.qaIdx].answer);
+        }
         //console.log(qaState.QAs);
     }
 
