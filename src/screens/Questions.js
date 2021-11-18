@@ -81,10 +81,14 @@ function Questions() {
                     {
                         
                         answers.map((ans, idx) => {
-                            // console.log(context.qaState.QAs[context.qaState.qaIdx].answer);
+                            if (qaState.QAs[qaState.qaIdx].answer !== undefined && selectedAns === ''){
+                                // handles filling in question if it had been answered and saved before
+                                selectAns(qaState.QAs[qaState.qaIdx].answer);
+                            }
                             return <div key={idx} onClick={() => {selectAns(ans)}}>
-                                        <input className="form-check-input" type="radio" name="flexRadioDefault" id={ans} checked={(qaState.QAs[qaState.qaIdx] !== undefined && qaState.QAs[qaState.qaIdx].answer === ans) || ans === selectedAns} onChange={() => {selectAns(ans)}}/>
+                                <input className="form-check-input" type="radio" name="flexRadioDefault" id={ans} checked={ans === selectedAns} onChange={() => void(0)}/>
                                         <label className="form-check-label" htmlFor="answers">
+                                        
                                             {ans}
                                         </label>
                                     </div>
