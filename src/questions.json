@@ -16,27 +16,27 @@
         "choices": ["Gain muscle/strength", "Lose weight", "Improve health"]
     },
     "injuries-under14-BMI-under-40": {
-        "question": "Question injuries-under14-BMI-under-40",
+        "question": "Do you have epiphysiolysis of the proximal humerus ('Little League Shoulder'), tendonitis, or impingement syndrome?",
         "choices": ["Yes", "No"]
     },
     "injuries-under14-BMI-over-40": {
-        "question": "Question injuries-under14-BMI-over-40",
+        "question": "Do you have ankle sprains, epiphysiolysis of the proximal humerus ('Little League Shoulder'), or impingement syndrome?",
         "choices": ["Yes", "No"]
     },
     "injuries-14-60-BMI-under-40": {
-        "question": "Question injuries-14-60-BMI-under-40",
+        "question": "Do you any bicep tears, hamstring strains, tendonitis, lower back pain, or knee injuries?",
         "choices": ["Yes", "No"]
     },
     "injuries-14-60-BMI-over-40": {
-        "question": "Question injuries-14-60-BMI-over-40",
+        "question": "Do you any bicep tears, hamstring strains, tendonitis, or lower back pain?",
         "choices": ["Yes", "No"]
     },
     "injuries-over61-BMI-under-40": {
-        "question": "Question injuries-over61-BMI-under-40",
+        "question": "Do you have any back pain, hamstring injuries, stress fractures, or kneecap pain?",
         "choices": ["Yes", "No"]
     },
     "injuries-over61-BMI-over-40": {
-        "question": "Question injuries-over61-BMI-over-40",
+        "question": "Do you have any fractures or sprains?",
         "choices": ["Yes", "No"]
     },
     "muscle-or-strength": {
@@ -44,11 +44,11 @@
         "choices": ["Muscle", "Strength"]
     },
     "swimming": {
-        "question": "Are you fine with being in water?",
+        "question": "Have you ever swam?",
         "choices": ["Yes", "No"]
     },
     "cycling": {
-        "question": "Do you enjoy riding a bike or want to learn how to ride a bike?",
+        "question": "Have you ever ridden a bike?",
         "choices": ["Yes", "No"]
     },
     "high-intensity-cardio": {

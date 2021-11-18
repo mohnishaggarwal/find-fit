@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import QuestionsService from './../services/QuestionsService';
 import { QAContext } from './../contexts/QAContext';
+import { useHistory } from "react-router-dom";
 
 function Questions() {
     const { qaState, qaDispatch } = useContext(QAContext);
@@ -8,15 +9,21 @@ function Questions() {
     const [answers, setAnswers] = useState([]);
     const [selectedAns, setSelectedAns] = useState('');
     const [multChoices, setMultChoices] = useState([]);     // Only to be used on question that says asks for goals.
+    const history = useHistory();
 
     function next() {
         // console.log(qaState.qaIdx);
         // console.log(qaState);
+        //console.log(selectedAns);
+        let finished;
         if (qaState.qaIdx === 3) {
-            QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
+            finished = QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
         }
         else {
-            QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
+            finished = QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
+        }
+        if (finished === 1) {
+            history.push("/matching-options");
         }
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
@@ -33,7 +40,7 @@ function Questions() {
         QuestionsService.lastQuestion(qaDispatch);
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
-        setSelectedAns(qaState.QAs[qaState.qaIdx].answer)
+        setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
         //console.log(qaState.QAs);
     }
 
