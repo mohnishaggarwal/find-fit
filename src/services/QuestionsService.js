@@ -79,6 +79,7 @@ const QuestionsService = {
             qaDispatch({type: 'update_qaIdx', payload: 1})
         }
         else {
+            qaDispatch({type: 'set_answer', payload: selectedAns});
             console.log("Matching time");
         }
     },

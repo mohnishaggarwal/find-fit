@@ -16,7 +16,8 @@ const QAReducer = (state, action) => {
     switch (action.type) {
         case 'add_QA':
             //console.log(`Adding the following question and answer:\n${JSON.stringify(action.payload)}`);
-            if(state.QAs[state.qaIdx + 1] === undefined){
+            if(state.QAs.includes(action.payload) === false){
+                state.QAs.length = state.qaIdx + 1;
                 state.QAs.push(action.payload);
             }
             return state;

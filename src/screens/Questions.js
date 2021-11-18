@@ -10,8 +10,8 @@ function Questions() {
     const [multChoices, setMultChoices] = useState([]);     // Only to be used on question that says asks for goals.
 
     function next() {
-        //console.log(selectedAns);
-        console.log(qaState);
+        // console.log(qaState.qaIdx);
+        // console.log(qaState);
         if (qaState.qaIdx === 3) {
             QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
         }
@@ -20,6 +20,7 @@ function Questions() {
         }
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
+        
         if(qaState.QAs[qaState.qaIdx].answer !== undefined){
             setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
         }
@@ -38,7 +39,14 @@ function Questions() {
 
     function selectAns(selected) {
         if (qaState.qaIdx === 3) {
-            setMultChoices((selectedSoFar) => [...selectedSoFar, selected]);
+            if (multChoices.includes(selected)){
+                setMultChoices(multChoices.filter((value, index, arr) => {
+                    return value !== selected;
+                }));
+            }
+            else{
+                setMultChoices((selectedSoFar) => [...selectedSoFar, selected]);
+            }
         }
         else {
             setSelectedAns(selected);
@@ -58,21 +66,38 @@ function Questions() {
                 <div className='questions-question-box'>
                     {question}
                 </div>
-                <div className="form-check">
-                {
-                    
-                    answers.map((ans, idx) => {
-                        // console.log(context.qaState.QAs[context.qaState.qaIdx].answer);
-                        return <div key={idx} onClick={() => {selectAns(ans)}}>
-                                    <input className="form-check-input" type="radio" name="flexRadioDefault" id={ans} checked={(qaState.QAs[qaState.qaIdx] !== undefined && qaState.QAs[qaState.qaIdx].answer === ans) || ans === selectedAns} onChange={() => {selectAns(ans)}}/>
-                                    <label className="form-check-label" htmlFor="answers">
-                                        {ans}
-                                    </label>
-                                </div>
-                               
-                    })
-                }
-                 </div>            
+                { qaState.qaIdx !== 3 ? (
+                    <div className="form-check">
+                    {
+                        
+                        answers.map((ans, idx) => {
+                            // console.log(context.qaState.QAs[context.qaState.qaIdx].answer);
+                            return <div key={idx} onClick={() => {selectAns(ans)}}>
+                                        <input className="form-check-input" type="radio" name="flexRadioDefault" id={ans} checked={(qaState.QAs[qaState.qaIdx] !== undefined && qaState.QAs[qaState.qaIdx].answer === ans) || ans === selectedAns} onChange={() => {selectAns(ans)}}/>
+                                        <label className="form-check-label" htmlFor="answers">
+                                            {ans}
+                                        </label>
+                                    </div>
+                                
+                        })
+                    }
+                    </div>   
+                ) : (
+                    <div className="form-check">
+                        {
+                        answers.map((ans, idx) => {
+                            return <div key={idx} onClick={() => {selectAns(ans)}}>
+                                        <input className="form-check-input" type="checkbox" value={ans} id={ans} onChange={(e) => void(0)} checked={multChoices.includes(ans)}/>
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            {ans}
+                                        </label>
+                                    </div>
+                                
+                        })
+                    }
+                    </div>
+                )
+                }         
                 <br/>
                 {
                     (qaState !== undefined && qaState.qaIdx !== 0) && 
