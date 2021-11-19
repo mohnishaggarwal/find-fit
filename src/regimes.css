@@ -1,0 +1,26 @@
+.bottom-div{
+    display: flex;
+    bottom: 0px;
+}
+.regime-button {
+    background: #000080;
+    border-radius: 20px;
+    width: 232px;
+    height: 64px;
+    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    margin: auto;
+  
+    padding-top: 11px;
+  
+    color: #FFCB05;
+}
+
+.no-link-style {
+    text-decoration: none;
+}
