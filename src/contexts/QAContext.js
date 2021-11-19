@@ -16,7 +16,10 @@ const QAReducer = (state, action) => {
     switch (action.type) {
         case 'add_QA':
             //console.log(`Adding the following question and answer:\n${JSON.stringify(action.payload)}`);
-            state.QAs.push(action.payload);
+            if(state.QAs.includes(action.payload) === false){
+                state.QAs.length = state.qaIdx + 1;
+                state.QAs.push(action.payload);
+            }
             return state;
         case 'update_qaIdx':
             //console.log(`Changing the question index by: ${action.payload}`);
@@ -27,7 +30,10 @@ const QAReducer = (state, action) => {
             state.QAs[state.qaIdx].answer = action.payload;
             return state;
         case 'remove_QA':
-            state.QAs.pop();
+            // state.QAs.pop();
+            if(state.QAs[state.qaIdx].answer === undefined){
+                state.QAs.pop();
+            }
             state.qaIdx -= 1;
             return state;
         default:

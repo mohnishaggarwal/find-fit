@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import QuestionsService from './../services/QuestionsService';
 import { QAContext } from './../contexts/QAContext';
+import { useHistory } from "react-router-dom";
 
 function Questions() {
     const { qaState, qaDispatch } = useContext(QAContext);
@@ -8,29 +9,54 @@ function Questions() {
     const [answers, setAnswers] = useState([]);
     const [selectedAns, setSelectedAns] = useState('');
     const [multChoices, setMultChoices] = useState([]);     // Only to be used on question that says asks for goals.
+    const history = useHistory();
 
     function next() {
+        // console.log(qaState.qaIdx);
+        // console.log(qaState);
         //console.log(selectedAns);
+        let finished;
         if (qaState.qaIdx === 3) {
-            QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
+            finished = QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
         }
         else {
-            QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
+            finished = QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
+        }
+        if (finished === 1) {
+            history.push("/matching-options");
         }
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
+        
+        if(qaState.QAs[qaState.qaIdx].answer !== undefined){
+            setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
+        }
+        else{
+            setSelectedAns('');
+        }
     }
 
     function last() {
         QuestionsService.lastQuestion(qaDispatch);
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
+        setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
+        if (qaState.qaIdx === 3) {
+            setMultChoices(qaState.QAs[qaState.qaIdx].answer);
+        }
         //console.log(qaState.QAs);
     }
 
     function selectAns(selected) {
         if (qaState.qaIdx === 3) {
-            setMultChoices((selectedSoFar) => [...selectedSoFar, selected]);
+            if (multChoices.includes(selected)){
+                setMultChoices(multChoices.filter((value, index, arr) => {
+                    return value !== selected;
+                }));
+            }
+            else{
+                setMultChoices((selectedSoFar) => [...selectedSoFar, selected]);
+            }
         }
         else {
             setSelectedAns(selected);
@@ -46,15 +72,50 @@ function Questions() {
 
     return (
         <div>
-            <p>This is the page where we ask questions</p>
-            <p>{question}</p>
-            <button onClick={last}>Last question</button>
-            {
-                answers.map((ans, idx) => {
-                    return <button key={idx} onClick={() => {selectAns(ans)}}>{ans}</button>
-                })
-            }
-            <button onClick={next}>Next question</button>
+            <div className='questions-container'>
+                <div className='questions-question-box'>
+                    {question}
+                </div>
+                { qaState.qaIdx !== 3 ? (
+                    <div className="form-check">
+                    {
+                        
+                        answers.map((ans, idx) => {
+                            // console.log(context.qaState.QAs[context.qaState.qaIdx].answer);
+                            return <div key={idx} onClick={() => {selectAns(ans)}}>
+                                        <input className="form-check-input" type="radio" name="flexRadioDefault" id={ans} checked={(qaState.QAs[qaState.qaIdx] !== undefined && qaState.QAs[qaState.qaIdx].answer === ans) || ans === selectedAns} onChange={() => {selectAns(ans)}}/>
+                                        <label className="form-check-label" htmlFor="answers">
+                                            {ans}
+                                        </label>
+                                    </div>
+                                
+                        })
+                    }
+                    </div>   
+                ) : (
+                    <div className="form-check">
+                        {
+                        answers.map((ans, idx) => {
+                            return <div key={idx} onClick={() => {selectAns(ans)}}>
+                                        <input className="form-check-input" type="checkbox" value={ans} id={ans} onChange={(e) => void(0)} checked={multChoices.includes(ans)}/>
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            {ans}
+                                        </label>
+                                    </div>
+                                
+                        })
+                    }
+                    </div>
+                )
+                }         
+                <br/>
+                {
+                    (qaState !== undefined && qaState.qaIdx !== 0) && 
+                    <button onClick={last}>Last question</button>
+                    
+                }
+                <button onClick={next}>Next question</button>
+            </div>
         </div>  
     )
 }
