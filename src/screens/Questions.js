@@ -10,33 +10,46 @@ function Questions() {
     const [selectedAns, setSelectedAns] = useState('');
     const [multChoices, setMultChoices] = useState([]);     // Only to be used on question that says asks for goals.
     const history = useHistory();
+    const [errorMessage, setErrorMessage] = useState(""); 
 
-    function next() {
-        // console.log(qaState.qaIdx);
-        // console.log(qaState);
-        //console.log(selectedAns);
+    function next(event) {
         let finished;
-        if (qaState.qaIdx === 3) {
-            finished = QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
+
+        // check for if the user answered the question
+        if (selectedAns === '' && qaState.qaIdx !== 3) {
+            // if user didn't answer a single answer question
+            setErrorMessage("Please select one option");
+        }
+        else if (multChoices.length === 0 && qaState.qaIdx === 3) {
+            // user didn't answer multiple answer question
+            setErrorMessage("Please select at least one option");
         }
         else {
-            finished = QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
-        }
-        if (finished === 1) {
-            history.push("/matching-options");
-        }
-        setQuestion(qaState.QAs[qaState.qaIdx].question);
-        setAnswers(qaState.QAs[qaState.qaIdx].choices);
-        
-        if(qaState.QAs[qaState.qaIdx].answer !== undefined){
-            setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
-        }
-        else{
-            setSelectedAns('');
+            // user answered everything
+            if (qaState.qaIdx === 3) {
+                finished = QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
+            }
+            else {
+                finished = QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
+            }
+            if (finished === 1) {
+                history.push("/matching-options");
+            }
+            setQuestion(qaState.QAs[qaState.qaIdx].question);
+            setAnswers(qaState.QAs[qaState.qaIdx].choices);
+            
+            if(qaState.QAs[qaState.qaIdx].answer !== undefined){
+                setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
+            }
+            else{
+                setSelectedAns('');
+            }
+            setErrorMessage('');
         }
     }
 
     function last() {
+        setErrorMessage('');
         QuestionsService.lastQuestion(qaDispatch);
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
@@ -55,6 +68,7 @@ function Questions() {
                 }));
             }
             else{
+                setErrorMessage('');
                 setMultChoices((selectedSoFar) => [...selectedSoFar, selected]);
             }
         }
@@ -111,7 +125,8 @@ function Questions() {
                     }
                     </div>
                 )
-                }         
+                }
+                <div id="invalid-input-message" style={{color: 'red'}}>{errorMessage}</div>        
                 <br/>
                 {
                     (qaState !== undefined && qaState.qaIdx !== 0) && 
