@@ -73,6 +73,7 @@ function Questions() {
             }
         }
         else {
+            setErrorMessage('');
             setSelectedAns(selected);
         }
     }
@@ -90,6 +91,11 @@ function Questions() {
                 <div className='questions-question-box'>
                     {question}
                 </div>
+                {
+                    (qaState.qaIdx === 1) && <div>
+                        If you don't know your BMI, you can use this BMI calculator (<a target="_blank" href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">Click me</a>)
+                    </div>
+                }
                 { qaState.qaIdx !== 3 ? (
                     <div className="form-check">
                     {
@@ -120,7 +126,6 @@ function Questions() {
                                             {ans}
                                         </label>
                                     </div>
-                                
                         })
                     }
                     </div>
