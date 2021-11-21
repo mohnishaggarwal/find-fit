@@ -5,97 +5,137 @@ const list_of_regimes = require('./../regimes.json')
 
 function Regime() {
 
-    const regime_type = "crossfit"
+    const regime_type = "cycling"
     const regime = list_of_regimes[regime_type]
     const regime_schedule = regime["schedule"]
 
-    function displaySchedule(){
-        const display_list = []
-        switch(regime_schedule["display_type"]){
-            case "daily":
-                const schema = regime_schedule["schema"]
-                regime_schedule["routine"].map((day,i) =>{
-                    display_list.push(
-                        <div key={i}>
-                            Day {i}
-                            <p>Warmup:</p>   
-                            <table key={i}>
-                                <tr>
-                                {
-                                    schema["warmup"].map((col,i) =>{
-                                        return <th>{col}</th>
-                                    })
-                                }
-                                </tr>
-                                {
-                                    day["warmup"].map((exercise,i) => {
-                                        return(
-                                        <tr> 
-                                            {exercise.map((col,i) => {
-                                                return <th> {col} </th>
-                                            })} 
-                                        </tr>
-                                        )
-                                    })
-                                }
-                            </table>
-                            <p>Main Workout:</p>
-                            <table>
-                                <tr>
-                                {
-                                    schema["main_workout"].map((col,i) =>{
-                                        return <th>{col}</th>
-                                    })
-                                }
-                                </tr>
-                                {
-                                    day["main_workout"].map((exercise,i) => {
-                                        return(
-                                            <tr> 
-                                                {exercise.map((col,i) => {
-                                                    return <th> {col} </th>
-                                                })} 
-                                            </tr>
-                                            )
-                                    })
-                                }
-                            </table>
-                        </div>
-                    )
-                })
-                
-                return display_list;
-            case "weekly":
-                let row = [];
-                let schedule = [];
-                regime_schedule["routine"].map((day,i) =>{
-                    if(i % 7 == 0){
-                        row = []
-                    }
-                    row.push(
-                    <th>
-                        <ul>
+    function generate_daily_warmup(schema, day){
+        const warm_up_comp = "";
+        if (schema.length != 0){
+            warm_up_comp = (
+                <div className="regime-warmup">
+                    <p>Warmup:</p>   
+                    <table className="regime-daily-schedule">
+                        <tr>
                         {
-                            day.map((exercise,i)=>{
-                                return <li> {exercise} </li>
+                            schema.map((col,i) =>{
+                                return <th width={parseInt(100/schema.length) + "%"}>{col}</th>
                             })
                         }
-                        </ul>
-                    </th>)
-                    if(i % 7 == 6){
-                        schedule.push(
-                        <tr>
-                            {row.map(day => day)}
                         </tr>
-                        )
-                    }
-                })
+                        {
+                            day.map((exercise,i) => {
+                                return(
+                                <tr> 
+                                    {exercise.map((col,i) => {
+                                        return <th width={parseInt(100/schema.length) + "%"}> {col} </th>
+                                    })} 
+                                </tr>
+                                )
+                            })
+                        }
+                    </table>
+                </div>
+            )
+        }
+        return warm_up_comp;
+    }
 
-                display_list.push(
-                <table>
-                    {schedule.map(week => week)}
-                </table>)
-                return display_list;
+    function generate_daily_main_workout(schema, day){
+        console.log(day)
+        return (
+            <div className="regime-main-workout">
+                <p>Main Workout:</p>
+                <table className="regime-daily-schedule">
+                    <tr>
+                    {
+                        schema.map((col) =>{
+                            return <th width={parseInt(100/schema.length) + "%"}>{col}</th>
+                        })
+                    }
+                    </tr>
+                    {
+                        day.map((exercise) => {
+                            return(
+                                <tr> 
+                                    {exercise.map((col,i) => {
+                                        return <th width={parseInt(100/schema.length) + "%"}> {col} </th>
+                                    })} 
+                                </tr>
+                                )
+                        })
+                    }
+                </table>
+            </div>
+        )
+    }
+
+    function generate_daily(){
+        let display_list = [];                
+        const schema = regime_schedule["schema"]
+        regime_schedule["routine"].map((day,i) =>{
+            console.log(parseInt(100/schema["warmup"].length) + "vh")
+            display_list.push(
+                <div>
+                    Day {i}
+                    {generate_daily_warmup(schema["warmup"],day["warmup"])}
+                    {generate_daily_main_workout(schema["main_workout"], day["main_workout"])}
+                </div>
+            )
+        })
+        return display_list;
+    }
+    function generate_weekly(){
+        let display_list = [];
+        let row = [];
+        let schedule = [];
+        let weekNum = 0;
+        const days_of_the_week = ["Week","Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"]
+
+        days_of_the_week.map((day)=>{
+            row.push(<th>{day}</th>);
+        })
+        schedule.push(<tr>{row}</tr>);
+
+        regime_schedule["routine"].map((day,i) =>{
+            if(i % 7 == 0){
+                weekNum += 1;
+                row = [<th>{weekNum}</th>]
+            }
+            row.push(
+            <th>
+                <ul>
+                {
+                    day.map((exercise)=>{
+                        return <li className="no-list-style"> {exercise} </li>
+                    })
+                }
+                </ul>
+            </th>)
+            if(i % 7 == 6){
+                schedule.push(
+                <tr>
+                    {row.map(day => day)}
+                </tr>
+                )
+            }
+        })
+
+        display_list.push(
+            <table className="regime-weekly-schedule">
+                {schedule.map(week => week)}
+            </table>
+        )
+
+        return display_list;
+    }
+
+    function displaySchedule(){
+        switch(regime_schedule["display_type"]){
+            case "daily":
+                return generate_daily();
+            case "weekly":
+                return generate_weekly();
             default:
                 console.log("We most likely just had an error");
                 return;
@@ -104,43 +144,50 @@ function Regime() {
 
     return (
         <div>
-            <p>We believe you should try {regime["name"]}!</p>
-            <div>
-                {regime["description"]}
-            </div>
-            <div>
-                {
-                    displaySchedule()
-                }
-            </div>
-            <div>
-                Links:
-                <div>
-                    <ul>
-                    {
-                        regime["links"].map((link,i) => {
-                            return <li><a href={link} key={i}>{link} </a></li>
-                        })
-                    }
-                    </ul>
+            <h1 className="regime-title">We believe you should try {regime["name"]}!</h1>
+            <hr />
+            <div className="regime-body">
+                <div className="regime-main-body">
+                    <div className="regime-left">
+                        <div className="regime-description">
+                            {regime["description"]}
+                        </div>
+                        <div className="regime-routine">
+                            {
+                                displaySchedule()
+                            }
+                        </div>
+                    </div>
+                    <div className="regime-right">
+                        <div>
+                            <ul>
+                            {
+                                regime["links"].map((link,i) => {
+                                    return <li><a href={link} key={i}>{link} </a></li>
+                                })
+                            }
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="bottom-div">
-                <p> Curious about your other matches? </p>
-                <Link className="no-link-style" to="/matching-options"> 
-                    <div className='regime-button'>
-                        <span>Back</span>
+                <div className="regime-bottom-div">
+                    <div id="regime-back">
+                        <p> Curious about your other matches? </p>
+                        <Link className="no-link-style" to="/matching-options"> 
+                            <div className='regime-button'>
+                                <div>Back</div>
+                            </div>
+                        </Link> 
                     </div>
-                </Link> 
-            </div>
-            <br />
-            <div className="bottom-div">
-                <p> Big lifestyle changes? Take this quiz again! </p>
-                <Link className="no-link-style" to="/">
-                    <div className='regime-button'>
-                        <span>Start Over</span>
+                    <div id="regime-start-over">
+                        <p> Big lifestyle changes? Take this quiz again! </p>
+                        <Link className="no-link-style" to="/">
+                            <div className='regime-button'>
+                                <div>Start Over</div>
+                            </div>
+                        </Link>
                     </div>
-                </Link>
+                </div>
             </div>
         </div>
     )
