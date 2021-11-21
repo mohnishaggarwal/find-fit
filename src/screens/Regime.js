@@ -3,7 +3,7 @@ import { Link, Route } from 'react-router-dom';
 
 const list_of_regimes = require('./../regimes.json')
 
-function Regime() {
+function Regime(props) {
 
     const regime_type = "cycling"
     const regime = list_of_regimes[regime_type]
