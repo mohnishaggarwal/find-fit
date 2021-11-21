@@ -35,7 +35,7 @@ body {
     min-height: 75px;
     display: flex;
     justify-content: flex-start;
-    align-content: center;
+    align-items: center;
     
 }
 
@@ -47,7 +47,7 @@ body {
 .question-answer-text-container {
     padding-left: 10px;
     display: flex;
-    align-content: center;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
 
@@ -62,6 +62,8 @@ body {
 .questions-answer-input-button {
     margin-left: 25px;
     width: 30px;
+    height: 30px;
+
 }
 
 .questions-nav-buttons {
@@ -101,7 +103,7 @@ body {
 .questions-nav-button-container {
     display: flex;
     justify-content: space-evenly;
-    align-content: center;
+    align-items: center;
 }
 
 .questions-error-message {
