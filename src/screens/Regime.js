@@ -3,7 +3,7 @@ import { Link, Route, useLocation } from 'react-router-dom';
 
 const list_of_regimes = require('./../regimes.json')
 
-function Regime(props) {
+function Regime() {
     const location = useLocation()
     //const regime_type = "crossfit"
     const regime_type= location.state.type;
@@ -11,8 +11,8 @@ function Regime(props) {
     const regime_schedule = regime["schedule"]
 
     function generate_daily_warmup(schema, day){
-        const warm_up_comp = "";
-        if (schema.length != 0){
+        let warm_up_comp = "";
+        if (schema.length != 0 && day.length != 0){
             warm_up_comp = (
                 <div className="regime-warmup">
                     <p>Warmup:</p>   
@@ -43,7 +43,6 @@ function Regime(props) {
     }
 
     function generate_daily_main_workout(schema, day){
-        console.log(day)
         return (
             <div className="regime-main-workout">
                 <p>Main Workout:</p>
