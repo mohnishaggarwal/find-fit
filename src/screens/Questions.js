@@ -12,19 +12,26 @@ function Questions() {
     const history = useHistory();
     const [errorMessage, setErrorMessage] = useState(""); 
 
-    function next(event) {
-        let finished;
-
+    function checkIfAnswered() {
         // check for if the user answered the question
         if (selectedAns === '' && qaState.qaIdx !== 3) {
             // if user didn't answer a single answer question
             setErrorMessage("Please select one option");
+            return false;
         }
         else if (multChoices.length === 0 && qaState.qaIdx === 3) {
             // user didn't answer multiple answer question
             setErrorMessage("Please select at least one option");
+            return false;
         }
-        else {
+        return true;
+
+    }
+
+    function next(event) {
+        let finished;
+
+        if (checkIfAnswered()){
             // user answered everything
             if (qaState.qaIdx === 3) {
                 finished = QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
@@ -89,13 +96,8 @@ function Questions() {
         <div>
             <div className='questions-container'>
                 <div className='questions-question-box'>
-                    {question}
+                    <div>{question}</div>
                 </div>
-                {
-                    (qaState.qaIdx === 1) && <div>
-                        If you don't know your BMI, you can use this BMI calculator (<a target="_blank" href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">Click me</a>)
-                    </div>
-                }
                 { qaState.qaIdx !== 3 ? (
                     <div className="form-check">
                     {
@@ -105,10 +107,11 @@ function Questions() {
                                 // handles filling in question if it had been answered and saved before
                                 selectAns(qaState.QAs[qaState.qaIdx].answer);
                             }
-                            return <div key={idx} onClick={() => {selectAns(ans)}}>
-                                <input className="form-check-input" type="radio" name="flexRadioDefault" id={ans} checked={ans === selectedAns} onChange={() => void(0)}/>
-                                        <label className="form-check-label" htmlFor="answers">
-                                        
+
+                            return <div key={idx} onClick={() => {selectAns(ans)}}
+                            className={`questions-answer-box ${ans === answers.at(-1) ? "questions-bottom-answer-box" : ""}`}>
+                                <input className="form-check-input questions-answer-input-button" type="radio" name="flexRadioDefault" id={ans} checked={ans === selectedAns} onChange={() => void(0)}/>
+                                        <label className="form-check-label question-answer-text-container" htmlFor="answers">
                                             {ans}
                                         </label>
                                     </div>
@@ -120,9 +123,9 @@ function Questions() {
                     <div className="form-check">
                         {
                         answers.map((ans, idx) => {
-                            return <div key={idx} onClick={() => {selectAns(ans)}}>
-                                        <input className="form-check-input" type="checkbox" value={ans} id={ans} onChange={(e) => void(0)} checked={multChoices.includes(ans)}/>
-                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            return <div key={idx} onClick={() => {selectAns(ans)}} className={`questions-answer-box ${ans === answers.at(-1) ? "questions-bottom-answer-box" : ""}`}>
+                                        <input className="form-check-input questions-answer-input-button" type="checkbox"  value={ans} id={ans} onChange={(e) => void(0)} checked={multChoices.includes(ans)}/>
+                                        <label className="form-check-label question-answer-text-container" htmlFor="flexCheckDefault">
                                             {ans}
                                         </label>
                                     </div>
@@ -131,14 +134,39 @@ function Questions() {
                     </div>
                 )
                 }
-                <div id="invalid-input-message" style={{color: 'red'}}>{errorMessage}</div>        
+                <div id="invalid-input-message" className="questions-error-message">{errorMessage}</div>        
                 <br/>
+
+                {/* {
+                    qaState.qaIdx === 3 && 
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                        Name:
+                        <input type="text" value={this.state.value} onChange={this.handleChange} />
+                        </label>
+                        <input type="submit" value="Submit" />
+                    </form>
+                } */}
                 {
-                    (qaState !== undefined && qaState.qaIdx !== 0) && 
-                    <button onClick={last}>Last question</button>
-                    
+                    (qaState.qaIdx === 1) && <div>
+                        If you don't know your BMI, you can use this BMI calculator (<a target="_blank" href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">Click me</a>)
+                    </div>
                 }
-                <button onClick={next}>Next question</button>
+                <br/>
+                <div class="questions-nav-button-container">
+                    {
+                        (qaState !== undefined && qaState.qaIdx !== 0) && 
+                        <button onClick={last} className="questions-nav-buttons">Back</button>
+                        
+                    }
+                    {
+                        ((selectedAns === '' && qaState.qaIdx !== 3) ||(multChoices.length === 0 && qaState.qaIdx === 3)) ? 
+                        (<button onClick={next} className="questions-nav-buttons-disabled" >Next</button>) : 
+                        (<button onClick={next} className="questions-nav-buttons">Next</button>)
+
+                    }
+                    
+                </div>
             </div>
         </div>  
     )
