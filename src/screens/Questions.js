@@ -10,33 +10,57 @@ function Questions() {
     const [selectedAns, setSelectedAns] = useState('');
     const [multChoices, setMultChoices] = useState([]);     // Only to be used on question that says asks for goals.
     const history = useHistory();
+    const [errorMessage, setErrorMessage] = useState(""); 
+    const [height, setHeight] = useState("");
+    const [weight, setWeight] = useState("");
+    const [bmi, setBMI] = useState("");
 
-    function next() {
-        // console.log(qaState.qaIdx);
-        // console.log(qaState);
-        //console.log(selectedAns);
+    function checkIfAnswered() {
+        // check for if the user answered the question
+        if (selectedAns === '' && qaState.qaIdx !== 3) {
+            // if user didn't answer a single answer question
+            setErrorMessage("Please select one option");
+            return false;
+        }
+        else if (multChoices.length === 0 && qaState.qaIdx === 3) {
+            // user didn't answer multiple answer question
+            setErrorMessage("Please select at least one option");
+            return false;
+        }
+        return true;
+
+    }
+
+    function next(event) {
         let finished;
-        if (qaState.qaIdx === 3) {
-            finished = QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
-        }
-        else {
-            finished = QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
-        }
-        if (finished === 1) {
-            history.push("/matching-options");
-        }
-        setQuestion(qaState.QAs[qaState.qaIdx].question);
-        setAnswers(qaState.QAs[qaState.qaIdx].choices);
-        
-        if(qaState.QAs[qaState.qaIdx].answer !== undefined){
-            setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
-        }
-        else{
-            setSelectedAns('');
+
+        if (checkIfAnswered()){
+            // user answered everything
+            if (qaState.qaIdx === 3) {
+                finished = QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
+            }
+            else {
+                finished = QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
+            }
+            if (finished === 1) {
+                history.push("/matching-options");
+            }
+            setQuestion(qaState.QAs[qaState.qaIdx].question);
+            setAnswers(qaState.QAs[qaState.qaIdx].choices);
+            
+            if(qaState.QAs[qaState.qaIdx].answer !== undefined){
+                setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
+            }
+            else{
+                setSelectedAns('');
+            }
+            setErrorMessage('');
+            setBMI("");
         }
     }
 
     function last() {
+        setErrorMessage('');
         QuestionsService.lastQuestion(qaDispatch);
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
@@ -55,12 +79,18 @@ function Questions() {
                 }));
             }
             else{
+                setErrorMessage('');
                 setMultChoices((selectedSoFar) => [...selectedSoFar, selected]);
             }
         }
         else {
+            setErrorMessage('');
             setSelectedAns(selected);
         }
+    }
+
+    function calculateBMI() {
+        setBMI(((parseInt(weight,10) * 703)/(parseInt(height,10)*parseInt(height,10))).toFixed(1) )
     }
 
     useEffect(() => {
@@ -74,7 +104,7 @@ function Questions() {
         <div>
             <div className='questions-container'>
                 <div className='questions-question-box'>
-                    {question}
+                    <div>{question}</div>
                 </div>
                 { qaState.qaIdx !== 3 ? (
                     <div className="form-check">
@@ -85,10 +115,11 @@ function Questions() {
                                 // handles filling in question if it had been answered and saved before
                                 selectAns(qaState.QAs[qaState.qaIdx].answer);
                             }
-                            return <div key={idx} onClick={() => {selectAns(ans)}}>
-                                <input className="form-check-input" type="radio" name="flexRadioDefault" id={ans} checked={ans === selectedAns} onChange={() => void(0)}/>
-                                        <label className="form-check-label" htmlFor="answers">
-                                        
+
+                            return <div key={idx} onClick={() => {selectAns(ans)}}
+                            className={`questions-answer-box ${ans === answers.at(-1) ? "questions-bottom-answer-box" : ""}`}>
+                                <input className="form-check-input questions-answer-input-button" type="radio" name="flexRadioDefault" id={ans} checked={ans === selectedAns} onChange={() => void(0)}/>
+                                        <label className="form-check-label question-answer-text-container" htmlFor="answers">
                                             {ans}
                                         </label>
                                     </div>
@@ -100,25 +131,69 @@ function Questions() {
                     <div className="form-check">
                         {
                         answers.map((ans, idx) => {
-                            return <div key={idx} onClick={() => {selectAns(ans)}}>
-                                        <input className="form-check-input" type="checkbox" value={ans} id={ans} onChange={(e) => void(0)} checked={multChoices.includes(ans)}/>
-                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                            return <div key={idx} onClick={() => {selectAns(ans)}} className={`questions-answer-box ${ans === answers.at(-1) ? "questions-bottom-answer-box" : ""}`}>
+                                        <input className="form-check-input questions-answer-input-button" type="checkbox"  value={ans} id={ans} onChange={(e) => void(0)} checked={multChoices.includes(ans)}/>
+                                        <label className="form-check-label question-answer-text-container" htmlFor="flexCheckDefault">
                                             {ans}
                                         </label>
                                     </div>
-                                
                         })
                     }
                     </div>
                 )
-                }         
-                <br/>
-                {
-                    (qaState !== undefined && qaState.qaIdx !== 0) && 
-                    <button onClick={last}>Last question</button>
-                    
                 }
-                <button onClick={next}>Next question</button>
+                <div id="invalid-input-message" className="questions-error-message">{errorMessage}</div>        
+                <br/>
+
+                {/* {
+                    qaState.qaIdx === 3 && 
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                        Name:
+                        <input type="text" value={this.state.value} onChange={this.handleChange} />
+                        </label>
+                        <input type="submit" value="Submit" />
+                    </form>
+                } */}
+                {
+                    (qaState.qaIdx === 1) && <div className="questions-bmi-calculator-container">
+                        Here is a BMI calculator for if you don't know your BMI. This is optional.
+                        <div className="questions-bmi-calculator">
+                            <div className="questions-bmi-calculator-field">
+                                <label>
+                                    Height (inches)
+                                    <input type="text" onChange={(event) => setHeight(event.target.value)}/>
+                                </label>
+                            </div>
+                            <div className="questions-bmi-calculator-field">
+                                
+                                <label>
+                                    Weight (pounds)
+                                    <input type="text" onChange={(event) => setWeight(event.target.value)}/>
+                                </label>
+                            </div>
+                            </div>
+                        <div className="questions-bmi-button">
+                            <input type="button" value="Calculate BMI" onClick={() => calculateBMI()}/>
+                        </div>
+                        <div>Your BMI is: {bmi}</div>
+                    </div>
+                }
+                <br/>
+                <div className="questions-nav-button-container">
+                    {
+                        (qaState !== undefined && qaState.qaIdx !== 0) && 
+                        <button onClick={last} className="questions-nav-buttons">Back</button>
+                        
+                    }
+                    {
+                        ((selectedAns === '' && qaState.qaIdx !== 3) ||(multChoices.length === 0 && qaState.qaIdx === 3)) ? 
+                        (<button onClick={next} className="questions-nav-buttons-disabled" >Next</button>) : 
+                        (<button onClick={next} className="questions-nav-buttons">Next</button>)
+
+                    }
+                    
+                </div>
             </div>
         </div>  
     )
