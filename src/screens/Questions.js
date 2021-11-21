@@ -11,6 +11,9 @@ function Questions() {
     const [multChoices, setMultChoices] = useState([]);     // Only to be used on question that says asks for goals.
     const history = useHistory();
     const [errorMessage, setErrorMessage] = useState(""); 
+    const [height, setHeight] = useState("");
+    const [weight, setWeight] = useState("");
+    const [bmi, setBMI] = useState("");
 
     function checkIfAnswered() {
         // check for if the user answered the question
@@ -52,6 +55,7 @@ function Questions() {
                 setSelectedAns('');
             }
             setErrorMessage('');
+            setBMI("");
         }
     }
 
@@ -83,6 +87,10 @@ function Questions() {
             setErrorMessage('');
             setSelectedAns(selected);
         }
+    }
+
+    function calculateBMI() {
+        setBMI(((parseInt(weight,10) * 703)/(parseInt(height,10)*parseInt(height,10))).toFixed(1) )
     }
 
     useEffect(() => {
@@ -148,12 +156,31 @@ function Questions() {
                     </form>
                 } */}
                 {
-                    (qaState.qaIdx === 1) && <div>
-                        If you don't know your BMI, you can use this BMI calculator (<a target="_blank" href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">Click me</a>)
+                    (qaState.qaIdx === 1) && <div className="questions-bmi-calculator-container">
+                        Here is a BMI calculator for if you don't know your BMI. This is optional.
+                        <div className="questions-bmi-calculator">
+                            <div className="questions-bmi-calculator-field">
+                                <label>
+                                    Height (inches)
+                                    <input type="text" onChange={(event) => setHeight(event.target.value)}/>
+                                </label>
+                            </div>
+                            <div className="questions-bmi-calculator-field">
+                                
+                                <label>
+                                    Weight (pounds)
+                                    <input type="text" onChange={(event) => setWeight(event.target.value)}/>
+                                </label>
+                            </div>
+                            </div>
+                        <div className="questions-bmi-button">
+                            <input type="button" value="Calculate BMI" onClick={() => calculateBMI()}/>
+                        </div>
+                        <div>Your BMI is: {bmi}</div>
                     </div>
                 }
                 <br/>
-                <div class="questions-nav-button-container">
+                <div className="questions-nav-button-container">
                     {
                         (qaState !== undefined && qaState.qaIdx !== 0) && 
                         <button onClick={last} className="questions-nav-buttons">Back</button>

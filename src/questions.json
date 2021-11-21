@@ -4,7 +4,7 @@
         "choices": ["Under 14", "Between 14-40", "Between 41-60", "Over 61"]
     },
     "bmi": {
-        "question": "Is your BMI under or over 40?",
+        "question": "Is your BMI under or over 40? See BMI calculator below",
         "choices": ["Under", "Over"]
     },
     "goals-14-60": {
