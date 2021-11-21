@@ -296,7 +296,10 @@
                 "warmup": [],
                 "main_workout": []
             },
-            "routine": []
+            "routine": {
+                "warmup": [],
+                "main_workout": []
+            }
         },
         "links": []
     }

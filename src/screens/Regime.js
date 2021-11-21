@@ -6,7 +6,10 @@ const list_of_regimes = require('./../regimes.json')
 function Regime() {
     const location = useLocation()
     //const regime_type = "crossfit"
-    const regime_type= location.state.type;
+    const regime_type = "running";
+    if(location.state){
+        regime_type = location.state.type;
+    };
     const regime = list_of_regimes[regime_type]
     const regime_schedule = regime["schedule"]
 
@@ -16,8 +19,8 @@ function Regime() {
             warm_up_comp = (
                 <div className="regime-warmup">
                     <p>Warmup:</p>   
-                    <table className="regime-daily-schedule">
-                        <tr>
+                    <table className="regime-table regime-daily-schedule">
+                        <tr className="regime-schedule-header" >
                         {
                             schema.map((col,i) =>{
                                 return <th width={parseInt(100/schema.length) + "%"}>{col}</th>
@@ -46,8 +49,8 @@ function Regime() {
         return (
             <div className="regime-main-workout">
                 <p>Main Workout:</p>
-                <table className="regime-daily-schedule">
-                    <tr>
+                <table className="regime-table regime-daily-schedule">
+                    <tr className="regime-schedule-header" >
                     {
                         schema.map((col) =>{
                             return <th width={parseInt(100/schema.length) + "%"}>{col}</th>
@@ -77,7 +80,7 @@ function Regime() {
             console.log(parseInt(100/schema["warmup"].length) + "vh")
             display_list.push(
                 <div>
-                    Day {i}
+                    <h3> Day {i + 1} </h3>
                     {generate_daily_warmup(schema["warmup"],day["warmup"])}
                     {generate_daily_main_workout(schema["main_workout"], day["main_workout"])}
                 </div>
@@ -95,12 +98,12 @@ function Regime() {
         days_of_the_week.map((day)=>{
             row.push(<th>{day}</th>);
         })
-        schedule.push(<tr>{row}</tr>);
+        schedule.push(<tr className="regime-schedule-header" >{row}</tr>);
 
         regime_schedule["routine"].map((day,i) =>{
             if(i % 7 == 0){
                 weekNum += 1;
-                row = [<th>{weekNum}</th>]
+                row = [<th className="regime-schedule-header">{weekNum}</th>]
             }
             row.push(
             <th>
@@ -122,7 +125,7 @@ function Regime() {
         })
 
         display_list.push(
-            <table className="regime-weekly-schedule">
+            <table className="regime-table regime-weekly-schedule">
                 {schedule.map(week => week)}
             </table>
         )
@@ -143,7 +146,7 @@ function Regime() {
     }
 
     return (
-        <div>
+        <div className="regime-page">
             <h1 className="regime-title">We believe you should try {regime["name"]}!</h1>
             <hr />
             <div className="regime-body">
@@ -153,6 +156,7 @@ function Regime() {
                             {regime["description"]}
                         </div>
                         <div className="regime-routine">
+                            <h2> Beginner's Regime </h2>
                             {
                                 displaySchedule()
                             }
