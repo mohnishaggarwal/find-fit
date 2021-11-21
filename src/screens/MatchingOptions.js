@@ -21,23 +21,28 @@ function MatchingOptions() {
     });
     myData = myData.slice(0,3);
     //score would be myData[i][1][1]
+    //passing parameters (params) react router pass in
     return (
         <div>
             <p>This is the page where we give the user possible regimes</p>
             <div>
                 <div>
                     {myData.map(function(item, i){
-                        return <div>
+                        return (
+                        <div>
                             <div>
-                                <Link to="/regime">{item[1][0]}</Link>
+                                <Link to={{ pathname:"/regime", state: { type:item[1][0].toLowerCase() } }}>
+                                    {item[1][0]}
+                                </Link>
                             </div>
                             <div>
                                 <p>Score={item[1][1]}</p>
                             </div>
-                        </div>
+                        </div>)
                     })}
                 </div>
             </div>
+            
             <Link to="/questions">Change Answers</Link>
         </div>
     )

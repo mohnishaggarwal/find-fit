@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, useLocation } from 'react-router-dom';
 
 const list_of_regimes = require('./../regimes.json')
 
 function Regime() {
 
-    const regime_type = "crossfit"
+    const location = useLocation()
+    //const regime_type = "crossfit"
+    const regime_type=location.state.type;
     const regime = list_of_regimes[regime_type]
     const regime_schedule = regime["schedule"]
 
