@@ -5,6 +5,7 @@ const list_of_regimes = require('./../regimes.json')
 
 function Regime(props) {
 
+    console.log(props)
     const regime_type = "cycling"
     const regime = list_of_regimes[regime_type]
     const regime_schedule = regime["schedule"]
@@ -159,15 +160,15 @@ function Regime(props) {
                         </div>
                     </div>
                     <div className="regime-right">
-                        <div>
-                            <ul>
-                            {
-                                regime["links"].map((link,i) => {
-                                    return <li><a href={link} key={i}>{link} </a></li>
-                                })
-                            }
-                            </ul>
-                        </div>
+                        {
+                            regime["links"].map((link,i) => {
+                                return(
+                                <div className="regime-link">
+                                    <a href={link} key={i}>{link} </a>
+                                </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
                 <div className="regime-bottom-div">
