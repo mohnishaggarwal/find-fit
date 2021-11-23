@@ -4,6 +4,8 @@
     font-weight: normal;
 }
 .regime-title{
+    background: #000080;
+    color:#FFCB05;
     position: relative;
     left: 0;
     top: 0;
@@ -14,7 +16,6 @@
 }
 .regime-body{
     position:relative;
-    top: -10px;
     left: 0;
     right: 0;
     font-size: 24px;
@@ -50,9 +51,6 @@
 .regime-right{
     position:absolute;
     border-left: 1px solid; 
-    text-overflow: ellipsis;
-    word-break:break-all;
-    white-space: normal;
     right: 0;
     top: 0;
     width: 20%;
@@ -60,9 +58,14 @@
     margin: 0;    
     height: 100%;
 }
-.regime-link{
+.regime-link-section{
     border-bottom: 1px solid;
-    padding: 20px;
+    padding: 10px;
+}
+.regime-link-section a{
+    text-overflow: ellipsis;
+    word-break:break-all;
+    white-space: normal;
 }
 .regime-bottom-div{
     border-top: 1px solid;
@@ -80,11 +83,18 @@
 }
 
 .regime-table{
+    border-collapse:collapse; 
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    border:1px solid #000080;
+    border:1px solid;
 }
+
+.regime-table tr, .regime-table th{
+    margin: 0;
+}
+
+
 
 
 .regime-weekly-schedule ul{
