@@ -3,7 +3,7 @@ import { Link, Route, useLocation } from 'react-router-dom';
 
 const list_of_regimes = require('./../regimes.json')
 
-function Regime(props) {
+function Regime() {
 
     const location = useLocation()
     //const regime_type = "crossfit"
