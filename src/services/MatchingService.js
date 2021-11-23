@@ -42,27 +42,25 @@ const MatchingService = {
                     delete matchRegimes["Running"];
                 }
             } else if (idx === 2) {
-                if (QA.answer === "Yes") {
-                    if (qaState.QAs[0].answer === questions.age.choices[0] || qaState.QAs[0].answer === questions.age.choices[3]) {
-                        if (qaState.QAs[1].answer === questions.bmi.choices[0]) {
-                            if ("Running" in matchRegimes) {
-                                delete matchRegimes["Running"];
-                            }
-                            if ("Calisthenics" in matchRegimes) {
-                                delete matchRegimes["Calisthenics"];
-                            }
-                        } else {
-                            if ("Calisthenics" in matchRegimes) {
-                                delete matchRegimes["Calisthenics"];
-                            }
-                        }
-                    } else {
+                if (QA.question === questions["injuries-under14-BMI-under-40"].question) {
+                    if (QA.answer.includes(questions["injuries-under14-BMI-under-40"].choices[0])) {
                         if ("Running" in matchRegimes) {
                             delete matchRegimes["Running"];
                         }
+                    }
+                    if (QA.answer.includes(questions["injuries-under14-BMI-under-40"].choices[1])) {
                         if ("Calisthenics" in matchRegimes) {
                             delete matchRegimes["Calisthenics"];
                         }
+                    }
+                } else if (QA.question === questions["injuries-under14-BMI-over-40"].question) {
+                    if (QA.answer.includes(questions["injuries-under14-BMI-over-40"].choices[0]) || QA.answer.includes(questions["injuries-under14-BMI-over-40"].choices[1])) {
+                        if ("Calisthenics" in matchRegimes) {
+                            delete matchRegimes["Calisthenics"];
+                        }
+                    }
+                } else if (QA.question === questions["injuries-14-60-BMI-under-40"].question) {
+                    if (QA.answer.includes(questions["injuries-14-60-BMI-under-40"].choices[0])) {
                         if ("Bodybuilding" in matchRegimes) {
                             delete matchRegimes["Bodybuilding"];
                         }
@@ -71,6 +69,50 @@ const MatchingService = {
                         }
                         if ("Crossfit" in matchRegimes) {
                             delete matchRegimes["Crossfit"];
+                        }
+                    }
+                    if (QA.answer.includes(questions["injuries-14-60-BMI-under-40"].choices[1])) {
+                        if ("Calisthenics" in matchRegimes) {
+                            delete matchRegimes["Calisthenics"];
+                        }
+                    }
+                    if (QA.answer.includes(questions["injuries-14-60-BMI-under-40"].choices[2])) {
+                        if ("Running" in matchRegimes) {
+                            delete matchRegimes["Running"];
+                        }
+                    }
+                } else if (QA.question === questions["injuries-14-60-BMI-over-40"].question) {
+                    if (QA.answer.includes(questions["injuries-14-60-BMI-over-40"].choices[0])) {
+                        if ("Bodybuilding" in matchRegimes) {
+                            delete matchRegimes["Bodybuilding"];
+                        }
+                        if ("Powerlifting" in matchRegimes) {
+                            delete matchRegimes["Powerlifting"];
+                        }
+                        if ("Crossfit" in matchRegimes) {
+                            delete matchRegimes["Crossfit"];
+                        }
+                    }
+                    if (QA.answer.includes(questions["injuries-14-60-BMI-over-40"].choices[1])) {
+                        if ("Calisthenics" in matchRegimes) {
+                            delete matchRegimes["Calisthenics"];
+                        }
+                    }
+                } else if (QA.question === questions["injuries-over61-BMI-under-40"].question) {
+                    if (QA.answer.includes(questions["injuries-over61-BMI-under-40"].choices[0])) {
+                        if ("Calisthenics" in matchRegimes) {
+                            delete matchRegimes["Calisthenics"];
+                        }
+                    }
+                    if (QA.answer.includes(questions["injuries-over61-BMI-under-40"].choices[1])) {
+                        if ("Running" in matchRegimes) {
+                            delete matchRegimes["Running"];
+                        }
+                    }
+                } else {
+                    if (QA.answer.includes(questions["injuries-over61-BMI-over-40"].choices[0]) || QA.answer.includes(questions["injuries-over61-BMI-over-40"].choices[1])) {
+                        if ("Calisthenics" in matchRegimes) {
+                            delete matchRegimes["Calisthenics"];
                         }
                     }
                 }
