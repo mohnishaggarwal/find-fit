@@ -24,7 +24,7 @@ function MatchingOptions() {
     //passing parameters (params) react router pass in
     return (
         <div>
-            <p>This is the page where we give the user possible regimes</p>
+            <p class="options-class">Here are your top three regimes!</p>
             <div>
                 <div>
                     {myData.map(function(item, i){
