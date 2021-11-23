@@ -1,0 +1,27 @@
+.comments-section {
+    display: flex;
+    flex-direction: column;
+    background-color: #ede7e6;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 20px;
+    border: 1px solid #fffdfc;
+    width: 100%;
+}
+
+.pb-cmnt-container {
+    font-family: Lato;
+    margin-top: 100px;
+}
+
+.pb-cmnt-textarea {
+    resize: none;
+    padding: 20px;
+    height: 130px;
+    width: 100%;
+    border: 1px solid #F2F2F2;
+}
