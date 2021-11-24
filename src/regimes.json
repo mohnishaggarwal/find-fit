@@ -344,18 +344,82 @@
 
     "calisthenics":{
         "name": "calisthenics",
-        "description": "",
+        "description": "Calisthenics is a type of workout where you use your own body weight to train your body. This type of workout can be used to improve strength, flexibility, coordination, among other abilities. Because it relies on body weight, you don't even need fancy equipment to perform a calisthenics workout!",
         "schedule": {
-            "display_type": "",
+            "display_type": "daily",
             "schema": {
                 "warmup": [],
-                "main_workout": []
+                "main_workout": ["Exercise(s)", "Duration/Reps", "Cycles"]
             },
-            "routine": {
-                "warmup": [],
-                "main_workout": []
-            }
+            "routine": [
+                {
+                    "warmup": [],
+                    "main_workout": 
+                    [
+                        ["Chin-ups", "7 reps", "4"],
+                        ["Pull-ups", "7 reps", "4"],
+                        ["Dips", "7 reps", "4"],
+                        ["Push-ups", "15 reps", "4"],
+                        ["Leg Raises", "5 reps", "4"],
+                        ["Jump Squats", "10 reps", "4"],
+                        ["Pull-Up Holds", "As long as possible", "4"]
+                    ]
+                },
+                {
+                    "warmup": [],
+                    "main_workout": 
+                    [
+                        ["Plank", "30 seconds", "4"],
+                        ["Squats", "8 reps", "4"],
+                        ["Lunges (repeat for each leg)", "8 reps per leg", "4"],
+                        ["Push-ups", "10 reps", "4"],
+                        ["Calf Raises", "5 reps", "4"],
+                        ["Mountain Climbers (repeat for each leg)", "20 reps per leg", "4"],
+                        ["Decline Push-ups", "5 reps", "4"]
+                    ]
+
+                },
+                {
+                    "warmup": [],
+                    "main_workout":
+                    [
+                        ["Wide Push-ups", "20 reps", "4"],
+                        ["Mountain Climbers (repeat for each leg)", "20 reps per leg", "4"],
+                        ["Wall Sit", "60 seconds", "4"],
+                        ["Clap Push-ups", "5 reps", "4"],
+                        ["Back extension hold", "30 reps", "4"],
+                        ["Squats", "20 reps", "4"],
+                        ["Crunches", "30 reps", "4"]
+                    ]
+                },
+                {
+                    "warmup": [],
+                    "main_workout":
+                    [
+                        ["Jump Rope", "30 seconds", "4"],
+                        ["L-sit", "10 seconds", "4"],
+                        ["Jumping Jacks", "45 seconds", "4"],
+                        ["Pull-ups", "10 reps", "4"],
+                        ["High Knees", "30 reps", "4"],
+                        ["Mountain Climbers (repeat for each leg)", "20 reps per leg", "4"],
+                        ["Plank", "15 seconds", "4"]
+                    ]
+                }
+            ]
         },
-        "links": []
+        "links": [
+            {
+                "link": "https://biostrap.com/blog/the-ultimate-beginners-7-day-guide-to-calisthenics/",
+                "description": "Check out this 7-day guide on calisthenics."
+            },
+            {
+                "link": "https://www.menshealth.com/uk/building-muscle/a759641/complete-guide-to-calisthenics-everything-you-need-to-know/",
+                "description": "Learn more about how to build mass with calisthenics."
+            },
+            {
+                "link": "https://www.bodybuilding.com/content/what-is-the-best-calisthenics-workout.html",
+                "description": "Explore this calisthenics workout."
+            }
+        ]
     }
 }

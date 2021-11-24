@@ -23,7 +23,7 @@ function Regime() {
                         <tr className="regime-schedule-header" >
                         {
                             schema.map((col,i) =>{
-                                return <th width={parseInt(100/schema.length) + "%"}>{col}</th>
+                                return <th className="regime-schedule-header" width={parseInt(100/schema.length) + "%"}>{col}</th>
                             })
                         }
                         </tr>
@@ -32,7 +32,7 @@ function Regime() {
                                 return(
                                 <tr> 
                                     {exercise.map((col,i) => {
-                                        return <th width={parseInt(100/schema.length) + "%"}> {col} </th>
+                                        return <th className="regime-table-body" width={parseInt(100/schema.length) + "%"}> {col} </th>
                                     })} 
                                 </tr>
                                 )
@@ -48,12 +48,12 @@ function Regime() {
     function generate_daily_main_workout(schema, day){
         return (
             <div className="regime-main-workout">
-                <p>Main Workout:</p>
+                <p className="left-align">Main Workout:</p>
                 <table className="regime-table regime-daily-schedule">
                     <tr className="regime-schedule-header" >
                     {
                         schema.map((col) =>{
-                            return <th width={parseInt(100/schema.length) + "%"}>{col}</th>
+                            return <th className="regime-schedule-header" width={parseInt(100/schema.length) + "%"}>{col}</th>
                         })
                     }
                     </tr>
@@ -62,7 +62,7 @@ function Regime() {
                             return(
                                 <tr> 
                                     {exercise.map((col,i) => {
-                                        return <th width={parseInt(100/schema.length) + "%"}> {col} </th>
+                                        return <th className="regime-table-body" width={parseInt(100/schema.length) + "%"}> {col} </th>
                                     })} 
                                 </tr>
                                 )
@@ -79,10 +79,12 @@ function Regime() {
         regime_schedule["routine"].map((day,i) =>{
             console.log(parseInt(100/schema["warmup"].length) + "vh")
             display_list.push(
-                <div>
-                    <h3> Day {i + 1} </h3>
-                    {generate_daily_warmup(schema["warmup"],day["warmup"])}
-                    {generate_daily_main_workout(schema["main_workout"], day["main_workout"])}
+                <div className="regime-daily">
+                    <h3 className="regime-routine-day-header"> Day {i + 1} </h3>
+                    <div className="regime-daily-schedule">
+                        {generate_daily_warmup(schema["warmup"],day["warmup"])}
+                        {generate_daily_main_workout(schema["main_workout"], day["main_workout"])}
+                    </div>
                 </div>
             )
         })
@@ -106,7 +108,7 @@ function Regime() {
                 row = [<th className="regime-schedule-header">{weekNum}</th>]
             }
             row.push(
-            <th>
+            <th className="regime-table-body">
                 <ul>
                 {
                     day.map((exercise)=>{
@@ -155,7 +157,7 @@ function Regime() {
                             {regime["description"]}
                         </div>
                         <div className="regime-routine">
-                            <h2> Beginner's Regime </h2>
+                            <h2 className="regime-routine-header"> Beginner's Regime </h2>
                             {
                                 displaySchedule()
                             }
