@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Route, useLocation } from 'react-router-dom';
+import Comments from './../components/Comments'
 
 const list_of_regimes = require('./../regimes.json')
 
@@ -202,6 +203,7 @@ function Regime() {
                     </div>
                 </div>
             </div>
+            <Comments />
         </div>
     )
 }
