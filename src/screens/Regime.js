@@ -19,7 +19,7 @@ function Regime() {
         if (schema.length != 0 && day.length != 0){
             warm_up_comp = (
                 <div className="regime-warmup">
-                    <p>Warmup:</p>   
+                    <p className="left-align">Warmup:</p>   
                     <table className="regime-table regime-daily-schedule">
                         <tr className="regime-schedule-header" >
                         {

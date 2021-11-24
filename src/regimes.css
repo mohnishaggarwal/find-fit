@@ -27,14 +27,14 @@
     min-height: 100vh;
 }
 .regime-main-body{
-    position: inherit;
     height:100%;
+    display: flex;
+    flex-direction: row;
 }
 .regime-left{
     right: 0;
     margin: 0;
     width: 80%;
-    height: 100%;
 }
 .regime-description{
     background-color: #FFCB05;
@@ -50,6 +50,7 @@
    font-size: 18px;
    padding: 30px;
    padding-top: 0px;
+   text-align: center;
 }
 .regime-routine-header{
     padding: 20px;
@@ -66,14 +67,13 @@
 }
 
 .regime-right{
-    position:absolute;
+    float:right;
     border-left: 5px solid; 
     right: 0;
     top: 0;
     width: 20%;
     padding: 0;
     margin: 0;    
-    height: 100%;
     background-color: #FFCB05;
     color:#000080;
     font-weight: bold;
@@ -88,6 +88,7 @@
     white-space: normal;
 }
 .regime-bottom-div{
+    position:static; 
     color: #FFCB05;
     background-color: #000080;
     font-weight: bold;
@@ -120,6 +121,9 @@
 
 .regime-table-body{
     background-color: white;
+    text-align: center;
+    padding: 0;
+    border-top:1px solid #000080;
 }
 
 .regime-daily{
@@ -134,9 +138,14 @@
     padding: 10px;
 }
 
+.regime-weekly-schedule{
+    text-align: center;
+}
+
 .regime-weekly-schedule ul{
     list-style-type: none;
     padding: 0;
+    margin: 5px;
 }
 
 .regime-schedule-header{
@@ -155,9 +164,9 @@
     font-size: 18px;
     line-height: 21px;
     text-align: center;
-    margin: 15px;
   
-    padding-top: 10px;
+    margin: 5px;
+    padding-top: 5px;
     top: 10px;
   
     background-color: #FFCB05;
