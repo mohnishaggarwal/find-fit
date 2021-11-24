@@ -6,12 +6,11 @@
 .options-title{
     position: relative;
     font-size: 50px;
-    background-color: white;
+    background-color: #FFCB05;
     height: 80px;
     width: 500px;
     left:36.5%;
     top:35px;
-    border-radius: 50px;
     /*
     border-color: #000080;
     border-style: solid;
@@ -21,7 +20,6 @@
     margin:50px;
 }
 .page-options{
-    background: #ffdc50;
     color: #000080;
 }
 .link{
