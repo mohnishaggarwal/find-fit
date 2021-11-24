@@ -6,7 +6,7 @@ const list_of_regimes = require('./../regimes.json')
 function Regime() {
     const location = useLocation()
     //const regime_type = "crossfit"
-    let regime_type = "crossfit";
+    let regime_type = "calisthenics";
     if(location.state){
         regime_type = location.state.type;
     };
@@ -149,7 +149,12 @@ function Regime() {
 
     return (
         <div className="regime-page">
-            <h1 className="regime-title">We believe you should try {regime["name"]}!</h1>
+            <div className="regime-banner">
+                <div>
+                    <p className="regime-title"> We believe you should try:</p>
+                    <p className="regime-title bolder-text"> {regime["name"]}! </p> 
+                </div>
+            </div>
             <div className="regime-body">
                 <div className="regime-main-body">
                     <div className="regime-left">

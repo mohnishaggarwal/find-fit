@@ -3,15 +3,19 @@
     font-style: normal;
     font-weight: normal;
 }
-.regime-title{
+.regime-banner{
     background: #000080;
     color:#FFCB05;
     position: relative;
     left: 0;
     top: 0;
     right: 0;
-    height: 50px;
-    padding: 20px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    font-size: 40px;
+}
+.regime-title{
+    padding: 0;
     margin: 0;
 }
 .regime-body{
@@ -169,4 +173,8 @@
 
 .left-align{
     text-align: left;
+}
+
+.bolder-text{
+    font-weight: bolder;
 }
