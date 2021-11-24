@@ -27,24 +27,27 @@ function Comments(regime) {
 
 
     return (
-        <div className="comments-section">
-            {
-                comments.map((comment, idx) => {
-                    return (
-                        <div key={idx} className="comment">
-                            <b>Anonymous:&nbsp;</b>{comment}
-                        </div>
-                    )
-                })
-            }
-            <form onSubmit={submitComment}>
-                <label>
-                    <b>Anonymous: &nbsp;</b>
-                    <input type="text" value={userComment} onChange={handleChange} />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
+        <div className="entire-section">
+            <div className="comments-section">
+                <div className="comment-title">Comments</div>
+                {
+                    comments.map((comment, idx) => {
+                        return (
+                            <div key={idx} className="comment">
+                                <b className="anon">Anonymous:&nbsp;</b>{comment}
+                            </div>
+                        )
+                    })
+                }
+                <form onSubmit={submitComment} className="form">
+                    <label>
+                        <b>Submit an anonymous comment: &nbsp;</b>
+                        <input type="text" value={userComment} onChange={handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" className="submit-button"/>
+                </form>
 
+            </div>
         </div>
     )
 }

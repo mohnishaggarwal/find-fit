@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, useLocation } from 'react-router-dom';
 import Comments from './../components/Comments'
 
 const list_of_regimes = require('./../regimes.json')
