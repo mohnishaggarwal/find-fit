@@ -111,7 +111,8 @@ function Questions() {
     }, [qaState]);
 
     return (
-        <div>
+        <div className='home'>
+            <div className='questions-background-img'></div>
             <div className='questions-container'>
                 <div className='questions-question-box'>
                     <div>{question}</div>
