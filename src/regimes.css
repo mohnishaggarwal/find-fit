@@ -33,11 +33,13 @@
     height: 100%;
 }
 .regime-description{
+    background-color: #FFCB05;
+    color: #000080;
     left: 0;
     right: 0;
     padding: 30px;
     margin: 0;
-    border-bottom: 1px solid;
+    border-bottom: 5px solid;
 }
 .regime-routine{
    height: 100%;
@@ -61,16 +63,19 @@
 
 .regime-right{
     position:absolute;
-    border-left: 1px solid; 
+    border-left: 5px solid; 
     right: 0;
     top: 0;
     width: 20%;
     padding: 0;
     margin: 0;    
     height: 100%;
+    background-color: #FFCB05;
+    color:#000080;
+    font-weight: bold;
 }
 .regime-link-section{
-    border-bottom: 1px solid;
+    border-bottom: 5px solid #000080;
     padding: 10px;
 }
 .regime-link-section a{
@@ -79,10 +84,13 @@
     white-space: normal;
 }
 .regime-bottom-div{
-    border-top: 1px solid;
+    color: #FFCB05;
+    background-color: #000080;
+    font-weight: bold;
+    border-top: 5px solid #000080;
     bottom: 0px;
     width: 100%;
-    border-bottom: 1px solid;
+    border-bottom: 5px solid #000080;
 }
 
 #regime-back{
@@ -133,7 +141,7 @@
 }
 
 .regime-button {
-    background: #000080;
+    color: #000080;
     border-radius: 20px;
     width: 116px;
     height: 32px;
@@ -148,7 +156,7 @@
     padding-top: 10px;
     top: 10px;
   
-    color: #FFCB05;
+    background-color: #FFCB05;
 }
 
 .no-link-style {
