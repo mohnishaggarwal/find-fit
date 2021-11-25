@@ -49,31 +49,36 @@ function MatchingOptions() {
             return Bodybuilding;
         }
     }
+    // test 
     return (
         <div className="page-options">
-            <p className="options-title">Your Top Regimes</p>
-            <div>
-                <div className="container-options">
-                    {myData.map(function(item, i){
-                        return (
-                        <div className="types-options">
-                            <div>
-                                <Link className="link" to={{ pathname:"/regime", state: { type:item[1][0].toLowerCase() } }}>
-                                    {item[1][0]}
-                                    <div>
-                                        <img className="image-options" src={getImage(item[1][0])}></img>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div>
-                                <p className="score-options">Fit Score: {item[1][1]}</p>
-                            </div>
-                        </div>)
-                    })}
+            <div className="background-options"></div>
+            <div className="options-content">
+                <p className="options-title">Your Top Regimes</p>
+                <div>
+                    <div className="container-options">
+                        {myData.map(function(item, i){
+                            return (
+                            <div className="types-options">
+                                <div>
+                                    <Link className="link" to={{ pathname:"/regime", state: { type:item[1][0].toLowerCase() } }}>
+                                        {item[1][0]}
+                                        <div>
+                                            <img className="image-options" src={getImage(item[1][0])}></img>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div>
+                                    <p className="score-options">Fit Score: {item[1][1]}</p>
+                                </div>
+                            </div>)
+                        })}
+                    </div>
                 </div>
+                
+                <Link className="options-button" to="/questions">Change Answers</Link>
             </div>
             
-            <Link className="options-button" to="/questions">Change Answers</Link>
         </div>
     )
 }
