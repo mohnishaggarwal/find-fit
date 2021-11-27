@@ -7,10 +7,7 @@ const list_of_regimes = require('./../regimes.json')
 function Regime() {
     const location = useLocation()
     //const regime_type = "crossfit"
-    let regime_type = "calisthenics";
-    if(location.state){
-        regime_type = location.state.type;
-    };
+    let regime_type = location.state.type;
     const regime = list_of_regimes[regime_type]
     const regime_schedule = regime["schedule"]
 
