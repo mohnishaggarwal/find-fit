@@ -7,6 +7,7 @@ const CommentsService = {
         const snapshot = await getDocs(regimesRef);
         const data = snapshot.docs.map(doc => doc.data().comment);
         console.log(data);
+        console.log(regime);
         setComments(data);
     },
     addComment: async(regime, comment) => {
