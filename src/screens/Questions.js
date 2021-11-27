@@ -83,10 +83,10 @@ function Questions() {
             }
             if (selected === "None of the above listed injuries" && multChoices.length !== 0) {
                 setMultChoices(multChoices.filter((value, index, arr) => {
-                    return value !== "None of the above listed injuries";
+                    return value === "None of the above listed injuries";
                 }));
             }
-            else if (multChoices.includes(selected)){
+            if (multChoices.includes(selected)){
                 setMultChoices(multChoices.filter((value, index, arr) => {
                     return value !== selected;
                 }));

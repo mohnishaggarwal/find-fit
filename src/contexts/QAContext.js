@@ -33,11 +33,12 @@ const QAReducer = (state, action) => {
             state.QAs[state.qaIdx].answer = action.payload;
             return state;
         case 'remove_QA':
-            if (state.QAs[state.qaIdx].question === "transitory") {
-                state.QAs.pop();
-            }
             state.QAs.pop();
             state.qaIdx -= 1;
+            while (state.QAs[state.qaIdx].question === "transitory") {
+                state.QAs.pop();
+                state.qaIdx -= 1;
+            }
             return state;
         case 'clear_state':
             state.qaIdx = 0;
