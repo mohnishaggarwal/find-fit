@@ -199,8 +199,8 @@ function Regime() {
                         </Link>
                     </div>
                 </div>
+                <Comments />
             </div>
-            <Comments />
         </div>
     )
 }
