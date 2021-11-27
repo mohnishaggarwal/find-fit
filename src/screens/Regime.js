@@ -13,7 +13,7 @@ function Regime() {
 
     function generate_daily_warmup(schema, day){
         let warm_up_comp = "";
-        if (schema.length != 0 && day.length != 0){
+        if (schema.length !== 0 && day.length !== 0){
             warm_up_comp = (
                 <div className="regime-warmup">
                     <p className="left-align">Warmup:</p>   
@@ -199,7 +199,7 @@ function Regime() {
                         </Link>
                     </div>
                 </div>
-                <Comments />
+                <Comments regime={regime_type}/>
             </div>
         </div>
     )
