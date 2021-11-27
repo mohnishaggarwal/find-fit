@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom';
+import { QAContext } from './../contexts/QAContext';
 
 function Home() {
+    const { qaState, qaDispatch } = useContext(QAContext);
+
+    useEffect(() => {
+        qaDispatch({type: 'clear_state'});
+    }, [qaDispatch])
+
     return (
         <div className='home'>
             <div className='background-img'></div>

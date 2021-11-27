@@ -31,13 +31,13 @@ function Questions() {
 
     }
 
-    function next(event) {
+    function next() {
         let finished = 0;
 
         if (checkIfAnswered()){
             // user answered everything
             if (qaState.qaIdx === 2 || qaState.qaIdx === 3) {
-                finished = QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
+                QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
             }
             else {
                 finished = QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
@@ -53,6 +53,7 @@ function Questions() {
                 }
                 else{
                     setSelectedAns('');
+                    setMultChoices([]);
                 }
                 setErrorMessage('');
                 setBMI("");
@@ -81,7 +82,9 @@ function Questions() {
                 }));
             }
             if (selected === "None of the above listed injuries" && multChoices.length !== 0) {
-                setErrorMessage('Cannot select "None of the above" and another choice');
+                setMultChoices(multChoices.filter((value, index, arr) => {
+                    return value !== "None of the above listed injuries";
+                }));
             }
             else if (multChoices.includes(selected)){
                 setMultChoices(multChoices.filter((value, index, arr) => {
@@ -108,7 +111,7 @@ function Questions() {
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
 
-    }, [qaState]);
+    }, []);
 
     return (
         <div className='home'>
