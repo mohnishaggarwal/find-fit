@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link, Route, useLocation } from 'react-router-dom';
+import Comments from './../components/Comments'
 
 const list_of_regimes = require('./../regimes.json')
 
 function Regime() {
     const location = useLocation()
     //const regime_type = "crossfit"
-    const regime_type= location.state.type;
+    let regime_type = "calisthenics";
+    if(location.state){
+        regime_type = location.state.type;
+    };
     const regime = list_of_regimes[regime_type]
     const regime_schedule = regime["schedule"]
 
@@ -15,12 +19,12 @@ function Regime() {
         if (schema.length != 0 && day.length != 0){
             warm_up_comp = (
                 <div className="regime-warmup">
-                    <p>Warmup:</p>   
-                    <table className="regime-daily-schedule">
-                        <tr>
+                    <p className="left-align">Warmup:</p>   
+                    <table className="regime-table regime-daily-schedule">
+                        <tr className="regime-schedule-header" >
                         {
                             schema.map((col,i) =>{
-                                return <th width={parseInt(100/schema.length) + "%"}>{col}</th>
+                                return <th className="regime-schedule-header" width={parseInt(100/schema.length) + "%"}>{col}</th>
                             })
                         }
                         </tr>
@@ -29,7 +33,7 @@ function Regime() {
                                 return(
                                 <tr> 
                                     {exercise.map((col,i) => {
-                                        return <th width={parseInt(100/schema.length) + "%"}> {col} </th>
+                                        return <th className="regime-table-body" width={parseInt(100/schema.length) + "%"}> {col} </th>
                                     })} 
                                 </tr>
                                 )
@@ -45,12 +49,12 @@ function Regime() {
     function generate_daily_main_workout(schema, day){
         return (
             <div className="regime-main-workout">
-                <p>Main Workout:</p>
-                <table className="regime-daily-schedule">
-                    <tr>
+                <p className="left-align">Main Workout:</p>
+                <table className="regime-table regime-daily-schedule">
+                    <tr className="regime-schedule-header" >
                     {
                         schema.map((col) =>{
-                            return <th width={parseInt(100/schema.length) + "%"}>{col}</th>
+                            return <th className="regime-schedule-header" width={parseInt(100/schema.length) + "%"}>{col}</th>
                         })
                     }
                     </tr>
@@ -59,7 +63,7 @@ function Regime() {
                             return(
                                 <tr> 
                                     {exercise.map((col,i) => {
-                                        return <th width={parseInt(100/schema.length) + "%"}> {col} </th>
+                                        return <th className="regime-table-body" width={parseInt(100/schema.length) + "%"}> {col} </th>
                                     })} 
                                 </tr>
                                 )
@@ -76,10 +80,12 @@ function Regime() {
         regime_schedule["routine"].map((day,i) =>{
             console.log(parseInt(100/schema["warmup"].length) + "vh")
             display_list.push(
-                <div>
-                    Day {i}
-                    {generate_daily_warmup(schema["warmup"],day["warmup"])}
-                    {generate_daily_main_workout(schema["main_workout"], day["main_workout"])}
+                <div className="regime-daily">
+                    <h3 className="regime-routine-day-header"> Day {i + 1} </h3>
+                    <div className="regime-daily-schedule">
+                        {generate_daily_warmup(schema["warmup"],day["warmup"])}
+                        {generate_daily_main_workout(schema["main_workout"], day["main_workout"])}
+                    </div>
                 </div>
             )
         })
@@ -95,15 +101,15 @@ function Regime() {
         days_of_the_week.map((day)=>{
             row.push(<th>{day}</th>);
         })
-        schedule.push(<tr>{row}</tr>);
+        schedule.push(<tr className="regime-schedule-header" >{row}</tr>);
 
         regime_schedule["routine"].map((day,i) =>{
             if(i % 7 == 0){
                 weekNum += 1;
-                row = [<th>{weekNum}</th>]
+                row = [<th className="regime-schedule-header">{weekNum}</th>]
             }
             row.push(
-            <th>
+            <th className="regime-table-body">
                 <ul>
                 {
                     day.map((exercise)=>{
@@ -122,7 +128,7 @@ function Regime() {
         })
 
         display_list.push(
-            <table className="regime-weekly-schedule">
+            <table className="regime-table regime-weekly-schedule">
                 {schedule.map(week => week)}
             </table>
         )
@@ -143,9 +149,13 @@ function Regime() {
     }
 
     return (
-        <div>
-            <h1 className="regime-title">We believe you should try {regime["name"]}!</h1>
-            <hr />
+        <div className="regime-page">
+            <div className="regime-banner">
+                <div>
+                    <p className="regime-title"> We believe you should try:</p>
+                    <p className="regime-title bolder-text"> {regime["name"]}! </p> 
+                </div>
+            </div>
             <div className="regime-body">
                 <div className="regime-main-body">
                     <div className="regime-left">
@@ -153,6 +163,7 @@ function Regime() {
                             {regime["description"]}
                         </div>
                         <div className="regime-routine">
+                            <h2 className="regime-routine-header"> Beginner's Regime </h2>
                             {
                                 displaySchedule()
                             }
@@ -162,8 +173,11 @@ function Regime() {
                         {
                             regime["links"].map((link,i) => {
                                 return(
-                                <div className="regime-link">
-                                    <a href={link} key={i}>{link} </a>
+                                <div className="regime-link-section">
+                                    <p>{link["description"]}</p>
+                                    <p>
+                                        <a href={link["link"]} key={i}>{link["link"]} </a> 
+                                    </p>
                                 </div>
                                 )
                             })
@@ -189,6 +203,7 @@ function Regime() {
                     </div>
                 </div>
             </div>
+            <Comments />
         </div>
     )
 }

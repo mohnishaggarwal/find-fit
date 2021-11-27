@@ -1,0 +1,97 @@
+.container-options{
+    display: flex;
+    justify-content: center;
+    margin: 101px;
+    background-color: rgba(255, 255, 255, 0.658);
+}
+.options-title{
+    position: relative;
+    font-size: 50px;
+    background-color: #FFCB05;
+    height: 80px;
+    width: 500px;
+    left:36.5%;
+    top:65px;
+    /*
+    border-color: #000080;
+    border-style: solid;
+    */
+}
+.types-options{
+    margin:60px;
+}
+.page-options{
+    color: #000080;
+    position: relative;
+    /*
+    border-color: rgb(110, 155, 4);
+    border-style: solid;
+    background-color: #484897;
+    */
+}
+.options-content{
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    /*
+    border-color: aqua;
+    border-style: solid;
+    */
+    z-index: 1;
+}
+.background-options{
+    position: fixed;
+    left:0px;
+    top:0px;
+    
+    background: url("img/options-gym.jpg") no-repeat center center fixed;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    
+    z-index: -1;
+    
+    filter: blur(50px);
+    -webkit-filter: blur(50px);
+    filter: grayscale(60%);
+    filter: opacity(70%);
+    filter: brightness(50%);
+    filter: contrast(30%);
+    filter:sepia(20px);
+    
+}
+.link{
+    font-size: 30px;
+    text-decoration: none;
+    font-weight:700;
+    color:#ffcc00;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000080;
+}
+.score-options{
+    font-size:20px;
+}
+.image-options{
+    margin: 15px;
+    object-fit: cover;
+    height: 350px;
+    width: 350px;
+}
+
+.options-button {
+    text-decoration: none;
+    position: relative;
+    background: #000080;
+    border-radius: 20px;
+    width: 292px;
+    height: 64px;  
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    text-align: center;
+    color: #FFCB05;
+    padding: 5px;
+    top: -70px;
+}

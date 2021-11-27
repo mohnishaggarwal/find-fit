@@ -17,12 +17,12 @@ function Questions() {
 
     function checkIfAnswered() {
         // check for if the user answered the question
-        if (selectedAns === '' && qaState.qaIdx !== 3) {
+        if (selectedAns === '' && qaState.qaIdx !== 3 && qaState.qaIdx !== 2) {
             // if user didn't answer a single answer question
             setErrorMessage("Please select one option");
             return false;
         }
-        else if (multChoices.length === 0 && qaState.qaIdx === 3) {
+        else if (multChoices.length === 0 && (qaState.qaIdx === 3 || qaState.qaIdx === 2)) {
             // user didn't answer multiple answer question
             setErrorMessage("Please select at least one option");
             return false;
@@ -32,11 +32,11 @@ function Questions() {
     }
 
     function next(event) {
-        let finished;
+        let finished = 0;
 
         if (checkIfAnswered()){
             // user answered everything
-            if (qaState.qaIdx === 3) {
+            if (qaState.qaIdx === 2 || qaState.qaIdx === 3) {
                 finished = QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
             }
             else {
@@ -45,18 +45,20 @@ function Questions() {
             if (finished === 1) {
                 history.push("/matching-options");
             }
-            setQuestion(qaState.QAs[qaState.qaIdx].question);
-            setAnswers(qaState.QAs[qaState.qaIdx].choices);
-            
-            if(qaState.QAs[qaState.qaIdx].answer !== undefined){
-                setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
+            else {
+                setQuestion(qaState.QAs[qaState.qaIdx].question);
+                setAnswers(qaState.QAs[qaState.qaIdx].choices);
+                if(qaState.QAs[qaState.qaIdx].answer !== undefined){
+                    setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
+                }
+                else{
+                    setSelectedAns('');
+                }
+                setErrorMessage('');
+                setBMI("");
             }
-            else{
-                setSelectedAns('');
-            }
-            setErrorMessage('');
-            setBMI("");
         }
+        //console.log(qaState.QAs[qaState.qaIdx-1]);
     }
 
     function last() {
@@ -65,15 +67,23 @@ function Questions() {
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
         setSelectedAns(qaState.QAs[qaState.qaIdx].answer);
-        if (qaState.qaIdx === 3) {
+        if (qaState.qaIdx === 2 || qaState.qaIdx === 3) {
             setMultChoices(qaState.QAs[qaState.qaIdx].answer);
         }
         //console.log(qaState.QAs);
     }
 
     function selectAns(selected) {
-        if (qaState.qaIdx === 3) {
-            if (multChoices.includes(selected)){
+        if (qaState.qaIdx === 2 || qaState.qaIdx === 3) {
+            if (multChoices.includes("None of the above listed injuries") && selected !== "None of the above listed injuries") {
+                setMultChoices(multChoices.filter((value, index, arr) => {
+                    return value !== "None of the above listed injuries";
+                }));
+            }
+            if (selected === "None of the above listed injuries" && multChoices.length !== 0) {
+                setErrorMessage('Cannot select "None of the above" and another choice');
+            }
+            else if (multChoices.includes(selected)){
                 setMultChoices(multChoices.filter((value, index, arr) => {
                     return value !== selected;
                 }));
@@ -101,13 +111,14 @@ function Questions() {
     }, [qaState]);
 
     return (
-        <div>
+        <div className='home'>
+            <div className='questions-background-img'></div>
             <div className='questions-container'>
                 <div className='questions-question-box'>
                     <div>{question}</div>
                 </div>
-                { qaState.qaIdx !== 3 ? (
-                    <div className="form-check">
+                { qaState.qaIdx !== 2 && qaState.qaIdx !== 3 ? (
+                    <div>
                     {
                         
                         answers.map((ans, idx) => {
@@ -128,7 +139,7 @@ function Questions() {
                     }
                     </div>   
                 ) : (
-                    <div className="form-check">
+                    <div>
                         {
                         answers.map((ans, idx) => {
                             return <div key={idx} onClick={() => {selectAns(ans)}} className={`questions-answer-box ${ans === answers.at(-1) ? "questions-bottom-answer-box" : ""}`}>
@@ -145,30 +156,19 @@ function Questions() {
                 <div id="invalid-input-message" className="questions-error-message">{errorMessage}</div>        
                 <br/>
 
-                {/* {
-                    qaState.qaIdx === 3 && 
-                    <form onSubmit={this.handleSubmit}>
-                        <label>
-                        Name:
-                        <input type="text" value={this.state.value} onChange={this.handleChange} />
-                        </label>
-                        <input type="submit" value="Submit" />
-                    </form>
-                } */}
                 {
                     (qaState.qaIdx === 1) && <div className="questions-bmi-calculator-container">
                         Here is a BMI calculator for if you don't know your BMI. This is optional.
                         <div className="questions-bmi-calculator">
                             <div className="questions-bmi-calculator-field">
                                 <label>
-                                    Height (inches)
+                                    Height (inches):&nbsp;
                                     <input type="text" onChange={(event) => setHeight(event.target.value)}/>
                                 </label>
                             </div>
                             <div className="questions-bmi-calculator-field">
-                                
                                 <label>
-                                    Weight (pounds)
+                                    Weight (pounds):&nbsp;
                                     <input type="text" onChange={(event) => setWeight(event.target.value)}/>
                                 </label>
                             </div>
@@ -187,7 +187,7 @@ function Questions() {
                         
                     }
                     {
-                        ((selectedAns === '' && qaState.qaIdx !== 3) ||(multChoices.length === 0 && qaState.qaIdx === 3)) ? 
+                        ((selectedAns === '' && qaState.qaIdx !== 3 && qaState.qaIdx !== 2) ||(multChoices.length === 0 && (qaState.qaIdx === 3 || qaState.qaIdx === 2))) ? 
                         (<button onClick={next} className="questions-nav-buttons-disabled" >Next</button>) : 
                         (<button onClick={next} className="questions-nav-buttons">Next</button>)
 

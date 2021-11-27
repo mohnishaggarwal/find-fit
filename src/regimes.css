@@ -1,15 +1,25 @@
-.regime-title{
-    position: relative;
+.regime-page{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+.regime-banner{
+    background: #000080;
+    color:#FFCB05;
+    z-index: 1000;
     left: 0;
     top: 0;
     right: 0;
-    height: 50px;
-    padding: 20px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    font-size: 40px;
+}
+.regime-title{
+    padding: 0;
     margin: 0;
 }
 .regime-body{
     position:relative;
-    top: -10px;
     left: 0;
     right: 0;
     font-size: 24px;
@@ -17,52 +27,79 @@
     min-height: 100vh;
 }
 .regime-main-body{
-    position: inherit;
     height:100%;
+    display: flex;
+    flex-direction: row;
 }
 .regime-left{
     right: 0;
     margin: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
     width: 80%;
-    height: 100%;
 }
 .regime-description{
+    background-color: #FFCB05;
+    color: #000080;
     left: 0;
     right: 0;
-    padding: 20px;
-    padding-top: 0;
+    padding: 30px;
     margin: 0;
-    border-bottom: 1px solid;
+    border-bottom: 5px solid;
 }
 .regime-routine{
    height: 100%;
-   padding-bottom: 10px;
    font-size: 18px;
-   margin: 5px;
+   padding: 30px;
+   padding-top: 0px;
+   text-align: center;
 }
+.regime-routine-header{
+    padding: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.regime-routine-day-header{
+    background-color: #000080;
+    color: #FFCB05;
+    border-radius: 10px 10px 0px 0px;
+    padding: 0;
+    margin: 0;
+}
+
+.regime-main-workout{
+    margin-top: 10px;
+}
+
 .regime-right{
-    position:absolute;
-    border-left: 1px solid; 
-    text-overflow: ellipsis;
-    word-break:break-all;
-    white-space: normal;
+    float:right;
+    border-left: 5px solid; 
     right: 0;
     top: 0;
     width: 20%;
     padding: 0;
     margin: 0;    
-    height: 100%;
+    background-color: #FFCB05;
+    color:#000080;
+    font-weight: bold;
 }
-.regime-link{
-    border-bottom: 1px solid;
-    padding: 20px;
+.regime-link-section{
+    background-color: #ffe684;
+    border-bottom: 5px solid #000080;
+    padding: 10px;
+}
+.regime-link-section a{
+    text-overflow: ellipsis;
+    word-break:break-all;
+    white-space: normal;
 }
 .regime-bottom-div{
-    border-top: 1px solid;
+    color: #FFCB05;
+    background-color: #000080;
+    font-weight: bold;
+    border-top: 5px solid #000080;
     bottom: 0px;
     width: 100%;
+    border-bottom: 5px solid #000080;
 }
 
 #regime-back{
@@ -73,25 +110,55 @@
     display: flex;
     justify-content: center;
 }
-.regime-daily-schedule{
+
+.regime-table{
+    border-collapse:collapse; 
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    border:1px solid;
+}
+
+.regime-table tr, .regime-table th{
+    margin: 0;
+}
+
+.regime-table-body{
+    background-color: white;
+    text-align: center;
+    padding: 0;
+    border-top:1px solid #000080;
+}
+
+.regime-daily{
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.regime-daily-schedule{
+    border-radius: 0px 0px 10px 10px;
+    background-color: #FFCB05;
+    padding: 10px;
 }
 
 .regime-weekly-schedule{
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+    text-align: center;
 }
 
 .regime-weekly-schedule ul{
     list-style-type: none;
     padding: 0;
+    margin: 5px;
+}
+
+.regime-schedule-header{
+    background: #000080;
+    color: #FFCB05;
 }
 
 .regime-button {
-    background: #000080;
+    color: #000080;
     border-radius: 20px;
     width: 116px;
     height: 32px;
@@ -101,12 +168,12 @@
     font-size: 18px;
     line-height: 21px;
     text-align: center;
-    margin: 15px;
   
-    padding-top: 10px;
+    margin: 5px;
+    padding-top: 5px;
     top: 10px;
   
-    color: #FFCB05;
+    background-color: #FFCB05;
 }
 
 .no-link-style {
@@ -115,4 +182,12 @@
 
 .no-list-style{
     list-style-type: none;
+}
+
+.left-align{
+    text-align: left;
+}
+
+.bolder-text{
+    font-weight: bolder;
 }
