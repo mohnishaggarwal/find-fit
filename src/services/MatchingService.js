@@ -3,13 +3,13 @@ const questions = require('./../questions.json');
 const MatchingService = {
     matchRegimes: (qaState) => {
         let matchRegimes = {
-            "Bodybuilding": 0,
-            "Crossfit": 0,
-            "Powerlifting": 0,
-            "Calisthenics": 0,
-            "Running": 0,
-            "Cycling": 0,
-            "Swimming": 0
+            "Bodybuilding": 5,
+            "Crossfit": 5,
+            "Powerlifting": 5,
+            "Calisthenics": 5,
+            "Running": 5,
+            "Cycling": 5,
+            "Swimming": 5
         };
 
         const small = 5;
