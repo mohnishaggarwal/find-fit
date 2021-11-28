@@ -21,6 +21,9 @@ const QAReducer = (state, action) => {
                 state.QAs.push(action.payload);
             }
             return state;
+        case 'add_transitory':
+            state.QAs.push({"question": "transitory", "choices": "transitory"});
+            return state;
         case 'update_qaIdx':
             //console.log(`Changing the question index by: ${action.payload}`);
             state.qaIdx += action.payload;
@@ -30,11 +33,21 @@ const QAReducer = (state, action) => {
             state.QAs[state.qaIdx].answer = action.payload;
             return state;
         case 'remove_QA':
-            // state.QAs.pop();
-            if(state.QAs[state.qaIdx].answer === undefined){
-                state.QAs.pop();
-            }
+            state.QAs.pop();
             state.qaIdx -= 1;
+            while (state.QAs[state.qaIdx].question === "transitory") {
+                state.QAs.pop();
+                state.qaIdx -= 1;
+            }
+            return state;
+        case 'clear_state':
+            state.qaIdx = 0;
+            state.QAs = [
+                {
+                    "question": questions.age.question,
+                    "choices": questions.age.choices
+                }
+            ];
             return state;
         default:
             console.log("We most likely just had an error");

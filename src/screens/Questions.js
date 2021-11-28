@@ -31,13 +31,13 @@ function Questions() {
 
     }
 
-    function next(event) {
+    function next() {
         let finished = 0;
 
         if (checkIfAnswered()){
             // user answered everything
             if (qaState.qaIdx === 2 || qaState.qaIdx === 3) {
-                finished = QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
+                QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
             }
             else {
                 finished = QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
@@ -53,6 +53,7 @@ function Questions() {
                 }
                 else{
                     setSelectedAns('');
+                    setMultChoices([]);
                 }
                 setErrorMessage('');
                 setBMI("");
@@ -81,9 +82,11 @@ function Questions() {
                 }));
             }
             if (selected === "None of the above listed injuries" && multChoices.length !== 0) {
-                setErrorMessage('Cannot select "None of the above" and another choice');
+                setMultChoices(multChoices.filter((value, index, arr) => {
+                    return value === "None of the above listed injuries";
+                }));
             }
-            else if (multChoices.includes(selected)){
+            if (multChoices.includes(selected)){
                 setMultChoices(multChoices.filter((value, index, arr) => {
                     return value !== selected;
                 }));
@@ -108,16 +111,17 @@ function Questions() {
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
 
-    }, [qaState]);
+    }, []);
 
     return (
-        <div>
+        <div className='home'>
+            <div className='questions-background-img'></div>
             <div className='questions-container'>
                 <div className='questions-question-box'>
                     <div>{question}</div>
                 </div>
                 { qaState.qaIdx !== 2 && qaState.qaIdx !== 3 ? (
-                    <div className="form-check">
+                    <div>
                     {
                         
                         answers.map((ans, idx) => {
@@ -138,7 +142,7 @@ function Questions() {
                     }
                     </div>   
                 ) : (
-                    <div className="form-check">
+                    <div>
                         {
                         answers.map((ans, idx) => {
                             return <div key={idx} onClick={() => {selectAns(ans)}} className={`questions-answer-box ${ans === answers.at(-1) ? "questions-bottom-answer-box" : ""}`}>
@@ -155,30 +159,19 @@ function Questions() {
                 <div id="invalid-input-message" className="questions-error-message">{errorMessage}</div>        
                 <br/>
 
-                {/* {
-                    qaState.qaIdx === 3 && 
-                    <form onSubmit={this.handleSubmit}>
-                        <label>
-                        Name:
-                        <input type="text" value={this.state.value} onChange={this.handleChange} />
-                        </label>
-                        <input type="submit" value="Submit" />
-                    </form>
-                } */}
                 {
                     (qaState.qaIdx === 1) && <div className="questions-bmi-calculator-container">
                         Here is a BMI calculator for if you don't know your BMI. This is optional.
                         <div className="questions-bmi-calculator">
                             <div className="questions-bmi-calculator-field">
                                 <label>
-                                    Height (inches)
+                                    Height (inches):&nbsp;
                                     <input type="text" onChange={(event) => setHeight(event.target.value)}/>
                                 </label>
                             </div>
                             <div className="questions-bmi-calculator-field">
-                                
                                 <label>
-                                    Weight (pounds)
+                                    Weight (pounds):&nbsp;
                                     <input type="text" onChange={(event) => setWeight(event.target.value)}/>
                                 </label>
                             </div>
