@@ -49,6 +49,11 @@
     margin-left: 5px;
 }
 
+.submit-button:hover{
+    color: #ffe684;
+    background-color: #0000F0;
+}
+
 .form{
     color: darkmagenta;
 }
