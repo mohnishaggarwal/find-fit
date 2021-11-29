@@ -79,7 +79,7 @@ const QuestionsService = {
                 }
             }
             else if (qaState.qaIdx === 7 && (qaState.QAs[0].answer === questions.age.choices[1] || qaState.QAs[0].answer === questions.age.choices[2])) {
-                if (qaState.QAs[3].answer.includes(questions["goals-14-60"].choices[0] || qaState.QAs[3].answer.includes(questions["goals-14-60"].choices[1]))) {
+                if (qaState.QAs[3].answer.includes(questions["goals-14-60"].choices[0]) && qaState.QAs[3].answer.includes(questions["goals-14-60"].choices[1])) {
                     qaDispatch({type: 'add_QA', payload: questions["muscle-or-strength"]});
                     questionAdded = true;
                 }
