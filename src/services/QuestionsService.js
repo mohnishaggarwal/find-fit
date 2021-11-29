@@ -98,7 +98,7 @@ const QuestionsService = {
         qaDispatch({type: 'update_qaIdx', payload: 1});
     },
     lastQuestion: (qaDispatch) => {
-        qaDispatch({type: 'remove_QA'})
+        qaDispatch({type: 'remove_QA'});
     }
 
 }
