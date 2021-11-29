@@ -1,16 +1,35 @@
 .container-options{
+    width: fit-content;
     display: flex;
     justify-content: center;
-    margin: 101px;
+    /* margin: 101px; */
+
     background-color: rgba(255, 255, 255, 0.658);
+    margin: auto;
+    margin-top: 101px;
+    margin-bottom: 101px;
+        
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center; 
 }
+
+@media screen and (max-width: 1450px) {
+    .container-options {
+      flex-direction: column;
+    }
+  }
+
 .options-title{
     position: relative;
     font-size: 50px;
     background-color: #FFCB05;
     height: 80px;
     width: 500px;
-    left:36.5%;
+    margin: auto;
+    /* left:36.5%; */
     top:65px;
     /*
     border-color: #000080;
@@ -18,7 +37,7 @@
     */
 }
 .types-options{
-    margin:60px;
+    margin:40px;
 }
 .page-options{
     color: #000080;
