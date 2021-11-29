@@ -33,11 +33,11 @@ function Questions() {
 
     function next() {
         let finished = 0;
-
         if (checkIfAnswered()){
             // user answered everything
             if (qaState.qaIdx === 2 || qaState.qaIdx === 3) {
                 QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
+                setMultChoices([]);
             }
             else {
                 finished = QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
