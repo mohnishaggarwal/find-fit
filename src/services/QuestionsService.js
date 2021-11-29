@@ -4,7 +4,6 @@ const QuestionsService = {
     nextQuestion: (qaState, qaDispatch, selectedAns) => {
         qaDispatch({type: 'set_answer', payload: selectedAns});
         let questionAdded = false;
-        console.log(qaState);
         while (!questionAdded) {
             if (qaState.qaIdx === 0) {
                 qaDispatch({type: 'add_QA', payload: questions.bmi});
