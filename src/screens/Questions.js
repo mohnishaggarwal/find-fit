@@ -103,7 +103,12 @@ function Questions() {
     }
 
     function calculateBMI() {
-        setBMI(((parseInt(weight,10) * 703)/(parseInt(height,10)*parseInt(height,10))).toFixed(1) )
+        if (weight === "" || height === ""){
+            setBMI("Please enter numbers into each field");
+        }
+        else{
+            setBMI(((parseInt(weight,10) * 703)/(parseInt(height,10)*parseInt(height,10))).toFixed(1) )
+        }
     }
 
     useEffect(() => {
