@@ -4,6 +4,7 @@ const QuestionsService = {
     nextQuestion: (qaState, qaDispatch, selectedAns) => {
         qaDispatch({type: 'set_answer', payload: selectedAns});
         let questionAdded = false;
+        console.log(qaState);
         while (!questionAdded) {
             if (qaState.qaIdx === 0) {
                 qaDispatch({type: 'add_QA', payload: questions.bmi});
@@ -64,6 +65,7 @@ const QuestionsService = {
                 }
                 else {
                     qaDispatch({type: 'update_qaIdx', payload: 1});
+                    qaDispatch({type: 'add_transitory'});
                 }
             }
             else if (qaState.qaIdx === 6 && (qaState.QAs[0].answer === questions.age.choices[1] || qaState.QAs[0].answer === questions.age.choices[2])) {
@@ -73,6 +75,7 @@ const QuestionsService = {
                 }
                 else {
                     qaDispatch({type: 'update_qaIdx', payload: 1});
+                    qaDispatch({type: 'add_transitory'});
                 }
             }
             else if (qaState.qaIdx === 7 && (qaState.QAs[0].answer === questions.age.choices[1] || qaState.QAs[0].answer === questions.age.choices[2])) {
@@ -81,12 +84,14 @@ const QuestionsService = {
                     questionAdded = true;
                 }
                 else {
-                    qaDispatch({type: 'update_qaIdx', payload: 1});
+                    console.log("Matching time");
+                    //console.log(qaState);
+                    return 1;
                 }
             }
             else {
                 console.log("Matching time");
-                console.log(qaState);
+                //console.log(qaState);
                 return 1;
             }
         }

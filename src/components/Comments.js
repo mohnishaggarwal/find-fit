@@ -2,17 +2,15 @@ import React, { useState, useEffect } from 'react';
 import CommentsService from '../services/CommentsService';
 import './comments.css'
 
-function Comments(regime) {
+function Comments({regime}) {
     const [comments, setComments] = useState([]);
     const [userComment, setUserComment] = useState("");
 
     useEffect(() => {
-        let regime = "bodybuilding";    // delete later
         CommentsService.fetchComments(regime, setComments);
     }, []);
 
     function submitComment(event) {
-        let regime = "bodybuilding";    // delete later
         event.preventDefault();
         console.log(userComment);
         CommentsService.addComment(regime, userComment);

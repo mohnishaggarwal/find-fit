@@ -7,16 +7,13 @@ const list_of_regimes = require('./../regimes.json')
 function Regime() {
     const location = useLocation()
     //const regime_type = "crossfit"
-    let regime_type = "calisthenics";
-    if(location.state){
-        regime_type = location.state.type;
-    };
+    let regime_type = location.state.type;
     const regime = list_of_regimes[regime_type]
     const regime_schedule = regime["schedule"]
 
     function generate_daily_warmup(schema, day){
         let warm_up_comp = "";
-        if (schema.length != 0 && day.length != 0){
+        if (schema.length !== 0 && day.length !== 0){
             warm_up_comp = (
                 <div className="regime-warmup">
                     <p className="left-align">Warmup:</p>   
@@ -187,23 +184,23 @@ function Regime() {
                 <div className="regime-bottom-div">
                     <div id="regime-back">
                         <p> Curious about your other matches? </p>
-                        <Link className="no-link-style" to="/matching-options"> 
                             <div className='regime-button'>
-                                <div>Back</div>
+                                <Link className="no-link-style" to="/matching-options"> 
+                                    <div className="regime-button-text">Back</div>
+                                </Link> 
                             </div>
-                        </Link> 
                     </div>
                     <div id="regime-start-over">
                         <p> Big lifestyle changes? Take this quiz again! </p>
-                        <Link className="no-link-style" to="/">
                             <div className='regime-button'>
-                                <div>Start Over</div>
+                                <a className="no-link-style" href="/">
+                                    <div className="regime-button-text">Start Over</div>
+                                </a>
                             </div>
-                        </Link>
                     </div>
                 </div>
+                <Comments regime={regime_type}/>
             </div>
-            <Comments />
         </div>
     )
 }
