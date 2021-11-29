@@ -193,9 +193,9 @@ function Regime() {
                     <div id="regime-start-over">
                         <p> Big lifestyle changes? Take this quiz again! </p>
                             <div className='regime-button'>
-                                <Link className="no-link-style" to="/">
+                                <a className="no-link-style" href="/">
                                     <div className="regime-button-text">Start Over</div>
-                                </Link>
+                                </a>
                             </div>
                     </div>
                 </div>
