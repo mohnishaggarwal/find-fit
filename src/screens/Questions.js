@@ -108,6 +108,9 @@ function Questions() {
 
     useEffect(() => {
         //console.log(qaState);
+        if (qaState.QAs[qaState.qaIdx].question === "transitory") {
+            qaDispatch({type: 'remove_QA'});
+        }
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
 
