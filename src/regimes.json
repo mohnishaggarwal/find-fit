@@ -203,13 +203,27 @@
             "description": "",
             "routine": 
             [
-                ["15 mins"], ["25 mins"], ["Rest or 15 mins"], ["25 mins"], ["Rest"], ["35 mins"], ["Rest"],
-                ["15 mins"], ["28 mins"], ["Rest or 15 mins"], ["28 mins"], ["Rest"], ["38 mins"], ["Rest"],
-                ["20 mins"], ["30 mins"], ["Rest or 15 mins"], ["30 mins"], ["Rest"], ["40 mins"], ["Rest"],
-                ["20 mins"], ["35 mins"], ["Rest or 15 mins"], ["35 mins"], ["Rest"], ["45 mins"], ["Rest"],
-                ["20 mins"], ["40 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["50 mins"], ["Rest"],
-                ["20 mins"], ["40 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["55 mins"], ["Rest"],
-                ["20 mins"], ["45 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["60 mins"], ["Rest"]
+                {
+                    "main_workout": [["15 mins"], ["25 mins"], ["Rest or 15 mins"], ["25 mins"], ["Rest"], ["35 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["15 mins"], ["28 mins"], ["Rest or 15 mins"], ["28 mins"], ["Rest"], ["38 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["20 mins"], ["30 mins"], ["Rest or 15 mins"], ["30 mins"], ["Rest"], ["40 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["20 mins"], ["35 mins"], ["Rest or 15 mins"], ["35 mins"], ["Rest"], ["45 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["20 mins"], ["40 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["50 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["20 mins"], ["40 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["55 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["20 mins"], ["45 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["60 mins"], ["Rest"]]
+                }
             ]
         },
         "links": 
@@ -236,43 +250,60 @@
         "schedule": {
             "display_type": "weekly",
             "description": "For clarification, \"Z\" followed by a number represents Heart Rate Training Zones. Z1 is at a heart rate where you can have a comfortable conversation. Z2 is at a heart rate that is faster, but you can still make conversation. Z3 is at a heart rate where sentences in conversations become shorter.",
-            "routine": 
-            [
-                ["REST DAY"], 
-                ["5 min @ Z1", "35 min @Z2", "5 min @Z2"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["5 min @Z1", "35 min @Z2", "5 min @Z2"],
-                ["REST DAY"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["10min @Z1", "1 hr 10min @Z2", "10 min @Z1"],
-                ["REST DAY"], 
-                ["5 min @ Z1", "50 min @Z2", "5 min @Z2"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["5 min @Z1", "50 min @Z2", "5 min @Z2"],
-                ["REST DAY"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["10min @Z1", "1 hr 45min @Z2", "10 min @Z1"],
-                ["REST DAY"], 
-                ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["5 min @Z1", "50 min @Z2", "5 min @Z2"],
-                ["REST DAY"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["10min @Z1", "1 hr 40min @Z2", "10 min @Z1"],
-                ["REST DAY"],
-                ["REST DAY"],
-                ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["10 min @Z1", "45 min @Z3", "5 min @Z1"],
-                ["REST DAY"],
-                ["10min @Z1", "1 hr 55min @Z2", "10 min @Z1"],
-                ["REST DAY"], 
-                ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["10 min @Z1", "45 min @Z3", "5 min @Z1"],
-                ["REST DAY"],
-                ["10min @Z1", "1 hr 10min @Z2", "10 min @Z1"],
-                ["10min @Z1", "1 hr 55min @Z2", "10 min @Z1"]
+            "routine": [
+                {
+                    "main_workout": [
+                        ["REST DAY"], 
+                        ["5 min @ Z1", "35 min @Z2", "5 min @Z2"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["5 min @Z1", "35 min @Z2", "5 min @Z2"],
+                        ["REST DAY"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["10min @Z1", "1 hr 10min @Z2", "10 min @Z1"]
+                    ]
+                },
+                {
+                    "main_workout": [
+                        ["REST DAY"], 
+                        ["5 min @ Z1", "50 min @Z2", "5 min @Z2"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["5 min @Z1", "50 min @Z2", "5 min @Z2"],
+                        ["REST DAY"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["10min @Z1", "1 hr 45min @Z2", "10 min @Z1"]
+                    ]
+                },{
+                    "main_workout": [
+                        ["REST DAY"], 
+                        ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["5 min @Z1", "50 min @Z2", "5 min @Z2"],
+                        ["REST DAY"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["10min @Z1", "1 hr 40min @Z2", "10 min @Z1"]
+                    ]
+                },
+                {
+                    "main_workout": [
+                        ["REST DAY"],
+                        ["REST DAY"],
+                        ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["10 min @Z1", "45 min @Z3", "5 min @Z1"],
+                        ["REST DAY"],
+                        ["10min @Z1", "1 hr 55min @Z2", "10 min @Z1"]
+                    ]
+                },{
+                    "main_workout": [
+                        ["REST DAY"], 
+                        ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["10 min @Z1", "45 min @Z3", "5 min @Z1"],
+                        ["REST DAY"],
+                        ["10min @Z1", "1 hr 10min @Z2", "10 min @Z1"],
+                        ["10min @Z1", "1 hr 55min @Z2", "10 min @Z1"]
+                    ]
+                }
             ]
         },
         "links": 

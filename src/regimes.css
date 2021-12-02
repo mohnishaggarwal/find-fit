@@ -60,12 +60,13 @@
     margin-bottom: 10px;
 }
 
-.regime-routine-day-header{
+.regime-routine-schedule-header{
     background-color: #000080;
     color: #FFCB05;
     border-radius: 10px 10px 0px 0px;
     padding: 0;
     margin: 0;
+    text-align: left;
 }
 
 .regime-main-workout{
@@ -139,6 +140,12 @@
     margin: 10px;
 }
 
+.regime-weekly{
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 10px;
+}
+
 .regime-daily-schedule{
     border-radius: 0px 0px 10px 10px;
     background-color: #FFCB05;
@@ -146,7 +153,9 @@
 }
 
 .regime-weekly-schedule{
-    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #FFCB05;
+    padding: 10px;
 }
 
 .regime-weekly-schedule ul{
