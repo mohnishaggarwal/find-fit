@@ -134,15 +134,20 @@ function Regime() {
     }
 
     function displaySchedule(){
+        let display = []
+        display.push(<p className="regime-workout-description">{regime_schedule["description"]}</p>)
         switch(regime_schedule["display_type"]){
             case "daily":
-                return generate_daily();
+                display.push(generate_daily());
+                break;
             case "weekly":
-                return generate_weekly();
+                display.push(generate_weekly());
+                break;
             default:
                 console.log("We most likely just had an error");
                 return;
         }
+        return display
     }
 
     return (
@@ -162,7 +167,9 @@ function Regime() {
                         <div className="regime-routine">
                             <h2 className="regime-routine-header"> Beginner's Regime </h2>
                             {
-                                displaySchedule()
+                                (displaySchedule()).map(component => {
+                                    return component;
+                                })
                             }
                         </div>
                     </div>

@@ -8,6 +8,7 @@
                 "warmup": [],
                 "main_workout": ["Exercise(s)", "Sets", "Reps"]
             },
+            "description": "",
             "routine": [
                 { 
                     "warmup": [],
@@ -66,6 +67,7 @@
                 "warmup": ["Exercise(s)", "Sets", "Time (s)"],
                 "main_workout": ["Exercise(s)", "Sets", "Reps"]
             },
+            "description": "",
             "routine": [
                 {
                     "warmup": 
@@ -136,6 +138,7 @@
                 "warmup": ["Focus", "Duration", "Rest Time (sec)"],
                 "main_workout": ["Focus", "Duration (sec)", "Rest Time (sec)"]
             },
+            "description": "",
             "routine": 
             [
                 {
@@ -197,6 +200,7 @@
         "description": "Running is a method of working out that aims at building on cardiovascular endurance. It helps build strong bones as it is a weight bearing exercise, strengthens muscles, burn calories, and maintains a healthy weight. Running is a unique form of exercise as it requires no equipment to get started!",
         "schedule": {
             "display_type": "weekly",
+            "description": "",
             "routine": 
             [
                 ["15 mins"], ["25 mins"], ["Rest or 15 mins"], ["25 mins"], ["Rest"], ["35 mins"], ["Rest"],
@@ -231,6 +235,7 @@
         "description": "Cycling, also called bicycling or biking, is the use of bicycles for transport, recreation, exercise or sport. Cycling provides a variety of health benefits. The World Health Organization (WHO) states that cycling can reduce the risk of cancers, heart disease, and diabetes that are prevalent in sedentary lifestyles. Cycling on stationary bikes have also been used as part of rehabilitation for lower limb injuries, particularly after hip surgery. Individuals who cycle regularly have also reported mental health improvements, including less perceived stress and better vitality.",
         "schedule": {
             "display_type": "weekly",
+            "description": "For clarification, \"Z\" followed by a number represents Heart Rate Training Zones. Z1 is at a heart rate where you can have a comfortable conversation. Z2 is at a heart rate that is faster, but you can still make conversation. Z3 is at a heart rate where sentences in conversations become shorter.",
             "routine": 
             [
                 ["REST DAY"], 
@@ -296,6 +301,7 @@
                 "warmup": [],
                 "main_workout": ["Exercise(s)"]
             },
+            "description": "",
             "routine": 
             [
                 {
@@ -351,6 +357,7 @@
                 "warmup": [],
                 "main_workout": ["Exercise(s)", "Duration/Reps", "Cycles"]
             },
+            "description": "",
             "routine": [
                 {
                     "warmup": [],

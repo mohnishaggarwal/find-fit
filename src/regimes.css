@@ -44,6 +44,9 @@
     margin: 0;
     border-bottom: 5px solid;
 }
+.regime-workout-description{
+    font-size: 24px;
+}
 .regime-routine{
    height: 100%;
    font-size: 18px;
