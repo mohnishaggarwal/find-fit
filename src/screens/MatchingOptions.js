@@ -64,7 +64,7 @@ function MatchingOptions() {
                                     <Link className="link" to={{ pathname:"/regime", state: { type:item[1][0].toLowerCase() } }}>
                                         {item[1][0]}
                                         <div>
-                                            <img className="image-options" src={getImage(item[1][0])}></img>
+                                            <img className="image-options" src={getImage(item[1][0])} alt={item[1][0]}></img>
                                         </div>
                                     </Link>
                                 </div>
