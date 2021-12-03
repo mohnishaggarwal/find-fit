@@ -45,15 +45,18 @@
         [
             {
                 "link": "https://www.bodybuilding.com/",
-                "description": "Explore other workouts, articles and bodybuilding products."
+                "description": "Explore other workouts, articles and bodybuilding products.",
+                "img": "bodybuilding-1.png"
             },
             {
                 "link": "https://www.menshealth.com/uk/building-muscle/a759236/complete-guide-to-bodybuilding/",
-                "description": "Learn everything you need to know about bodybuilding."
+                "description": "Learn everything you need to know about bodybuilding.",
+                "img": "bodybuilding-2.jpg"
             },
             {
                 "link" :"https://www.youtube.com/user/gregdoucette",
-                "description": "A youtube channel for new bodybuilders."
+                "description": "A youtube channel for new bodybuilders.",
+                "img": "bodybuilding-3.jpg"
             }
         ]
     },
@@ -115,16 +118,19 @@
         "links": 
         [
             {
-                "link":"https://www.coachmag.co.uk/barbell-Exercise(s)s/5888/how-to-start-powerlifting",
-                "description": "A resource to get started with powerlifting."
+                "link":"https://www.coachmag.co.uk/barbell-exercises/5888/how-to-start-powerlifting",
+                "description": "A resource to get started with powerlifting.",
+                "img": "powerlifting-1.jpeg"
             },
             {
                 "link":"https://powerliftingtechnique.com/how-to-start-powerlifting/",
-                "description": "Another resource to get started with powerlifting."
+                "description": "Another resource to get started with powerlifting.",
+                "img": "powerlifting-2.jpg"
             },
             {
                 "link":"https://www.youtube.com/c/AlanThrall/featured",
-                "description": "A youtube channel for beginning powerlifters."
+                "description": "A youtube channel for beginning powerlifters.",
+                "img": "powerlifting-3.png"
             }
         ]
     },
@@ -181,16 +187,19 @@
         "links": 
         [
             {
-                "link":"https://www.healthline.com/health/Exercise(s)-fitness/how-to-swim",
-                "description": "Learn how to swim in different styles."
+                "link":"https://www.healthline.com/health/exercise-fitness/how-to-swim",
+                "description": "Learn how to swim in different styles.",
+                "img": "swimming-1.jpeg"
             },
             {
                 "link":"https://www.livestrong.com/article/197700-how-can-i-learn-to-swim-by-myself/",
-                "description": "Learn how to swim."
+                "description": "Learn how to swim.",
+                "img": "swimming-2.png"
             },
             {
                 "link":"https://www.usms.org/fitness-and-training/articles-and-videos/articles/how-to-swim-freestyle-in-the-pool-or-open-water",
-                "description": "Learn how to improve your swimming."
+                "description": "Learn how to improve your swimming.",
+                "img": "swimming-3.png"
             }
         ]
     },
