@@ -4,7 +4,6 @@ const QuestionsService = {
     nextQuestion: (qaState, qaDispatch, selectedAns) => {
         qaDispatch({type: 'set_answer', payload: selectedAns});
         let questionAdded = false;
-        console.log(qaState);
         while (!questionAdded) {
             if (qaState.qaIdx === 0) {
                 qaDispatch({type: 'add_QA', payload: questions.bmi});
@@ -79,7 +78,7 @@ const QuestionsService = {
                 }
             }
             else if (qaState.qaIdx === 7 && (qaState.QAs[0].answer === questions.age.choices[1] || qaState.QAs[0].answer === questions.age.choices[2])) {
-                if (qaState.QAs[3].answer.includes(questions["goals-14-60"].choices[0] || qaState.QAs[3].answer.includes(questions["goals-14-60"].choices[1]))) {
+                if (qaState.QAs[3].answer.includes(questions["goals-14-60"].choices[0]) && qaState.QAs[3].answer.includes(questions["goals-14-60"].choices[1])) {
                     qaDispatch({type: 'add_QA', payload: questions["muscle-or-strength"]});
                     questionAdded = true;
                 }
@@ -98,7 +97,7 @@ const QuestionsService = {
         qaDispatch({type: 'update_qaIdx', payload: 1});
     },
     lastQuestion: (qaDispatch) => {
-        qaDispatch({type: 'remove_QA'})
+        qaDispatch({type: 'remove_QA'});
     }
 
 }

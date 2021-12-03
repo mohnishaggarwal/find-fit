@@ -14,6 +14,7 @@ function Questions() {
     const [height, setHeight] = useState("");
     const [weight, setWeight] = useState("");
     const [bmi, setBMI] = useState("");
+    const [bmiError, setBMIError] = useState("");
 
     function checkIfAnswered() {
         // check for if the user answered the question
@@ -33,11 +34,13 @@ function Questions() {
 
     function next() {
         let finished = 0;
-
+        setHeight("");
+        setWeight("");
         if (checkIfAnswered()){
             // user answered everything
             if (qaState.qaIdx === 2 || qaState.qaIdx === 3) {
                 QuestionsService.nextQuestion(qaState, qaDispatch, multChoices);
+                setMultChoices([]);
             }
             else {
                 finished = QuestionsService.nextQuestion(qaState, qaDispatch, selectedAns);
@@ -72,6 +75,8 @@ function Questions() {
             setMultChoices(qaState.QAs[qaState.qaIdx].answer);
         }
         //console.log(qaState.QAs);
+        setHeight("");
+        setWeight("");
     }
 
     function selectAns(selected) {
@@ -103,11 +108,20 @@ function Questions() {
     }
 
     function calculateBMI() {
-        setBMI(((parseInt(weight,10) * 703)/(parseInt(height,10)*parseInt(height,10))).toFixed(1) )
+        if (weight === "" || height === "" || isNaN(weight) || isNaN(height)){
+            setBMIError("Please enter a number into each field");
+        }
+        else{
+            setBMIError("");
+            setBMI(((parseInt(weight,10) * 703)/(parseInt(height,10)*parseInt(height,10))).toFixed(1) )
+        }
     }
 
     useEffect(() => {
         //console.log(qaState);
+        if (qaState.QAs[qaState.qaIdx].question === "transitory") {
+            qaDispatch({type: 'remove_QA'});
+        }
         setQuestion(qaState.QAs[qaState.qaIdx].question);
         setAnswers(qaState.QAs[qaState.qaIdx].choices);
 
@@ -179,6 +193,7 @@ function Questions() {
                         <div className="questions-bmi-button">
                             <input type="button" value="Calculate BMI" onClick={() => calculateBMI()}/>
                         </div>
+                        <div className="questions-error-message">{bmiError}</div>
                         <div>Your BMI is: {bmi}</div>
                     </div>
                 }

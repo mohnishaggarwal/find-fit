@@ -1,6 +1,6 @@
 {
     "bodybuilding":{
-        "name": "body building",
+        "name": "bodybuilding",
         "description": "Bodybuilding is the act and practice of enhancing one's physical form. It's done through weightlifting and proper nutrition. 'Bodybuilding itself is the process of enhancing the body's muscle and symmetry and the promotion of overall health and fitness,' says Kollath, adding that bodybuilding as a competitive sport is 'the pursuit of the 'ultimate' physique that is symmetrical from top to bottom. It is the sport of aesthetics.'",
         "schedule": {
             "display_type": "daily",
@@ -44,21 +44,21 @@
         [
             {
                 "link": "https://www.bodybuilding.com/",
-                "description": "Explore other workouts, articles and body building products."
+                "description": "Explore other workouts, articles and bodybuilding products."
             },
             {
                 "link": "https://www.menshealth.com/uk/building-muscle/a759236/complete-guide-to-bodybuilding/",
-                "description": "Learn everything you need to know about body building."
+                "description": "Learn everything you need to know about bodybuilding."
             },
             {
                 "link" :"https://www.youtube.com/user/gregdoucette",
-                "description": "A youtube channel for new body builders."
+                "description": "A youtube channel for new bodybuilders."
             }
         ]
     },
 
     "powerlifting":{
-        "name": "power lifting",
+        "name": "powerlifting",
         "description": "Powerlifting is a strength sport aimed at maximizing the total amount of weight one can lift. Individuals who powerlift are focused on strength and functional performance as opposed to physique. Strength is measured through three main exercises: Squat, Bench, Deadlift. These exercises are compound movements that target a wide array of muscles. Powerlifting is about achieving the maximum possible squat, bench, and deadlift that one’s genetics allows for. Even though powerlifting is about maximizing the weight on the bar, these movements do have a learning curve. It is very important to worry about technique instead of weight when one first starts powerlifting.",
         "schedule": {
             "display_type": "daily",
@@ -114,15 +114,15 @@
         [
             {
                 "link":"https://www.coachmag.co.uk/barbell-Exercise(s)s/5888/how-to-start-powerlifting",
-                "description": "A resource to get started with power lifting."
+                "description": "A resource to get started with powerlifting."
             },
             {
                 "link":"https://powerliftingtechnique.com/how-to-start-powerlifting/",
-                "description": "Another resource to get started with power lifting."
+                "description": "Another resource to get started with powerlifting."
             },
             {
                 "link":"https://www.youtube.com/c/AlanThrall/featured",
-                "description": "A youtube channel for beginning power lifters."
+                "description": "A youtube channel for beginning powerlifters."
             }
         ]
     },
