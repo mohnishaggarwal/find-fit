@@ -95,6 +95,17 @@
     word-break:break-all;
     white-space: normal;
 }
+
+.regime-link-img{
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+}
+
+.regime-link-img:hover{
+    opacity: 75%
+}
+
 .regime-bottom-div{
     color: #FFCB05;
     background-color: #000080;

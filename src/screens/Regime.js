@@ -139,6 +139,12 @@ function Regime() {
         return display_list;
     }
 
+    function getImage(img_name){
+        return (
+            <img className="regime-link-img"
+            src={require("../img/routine-link-images/" + img_name).default}></img>
+        )
+    }
     function displaySchedule(){
         let display = []
         display.push(<p className="regime-workout-description">{regime_schedule["description"]}</p>)
@@ -185,9 +191,11 @@ function Regime() {
                                 return(
                                 <div className="regime-link-section">
                                     <p>{link["description"]}</p>
-                                    <p>
-                                        <a href={link["link"]} key={i}>{link["link"]} </a> 
-                                    </p>
+                                    <div>
+                                        <a href={link["link"]} target="_blank" key={i}>
+                                            {getImage(link["img"])}
+                                        </a> 
+                                    </div>
                                 </div>
                                 )
                             })
