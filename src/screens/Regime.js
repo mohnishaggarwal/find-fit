@@ -75,10 +75,9 @@ function Regime() {
         let display_list = [];                
         const schema = regime_schedule["schema"]
         regime_schedule["routine"].map((day,i) =>{
-            console.log(parseInt(100/schema["warmup"].length) + "vh")
             display_list.push(
                 <div className="regime-daily">
-                    <h3 className="regime-routine-day-header"> Day {i + 1} </h3>
+                    <h3 className="regime-routine-schedule-header"> Day {i + 1} </h3>
                     <div className="regime-daily-schedule">
                         {generate_daily_warmup(schema["warmup"],day["warmup"])}
                         {generate_daily_main_workout(schema["main_workout"], day["main_workout"])}
@@ -90,59 +89,71 @@ function Regime() {
     }
     function generate_weekly(){
         let display_list = [];
-        let row = [];
-        let schedule = [];
-        let weekNum = 0;
-        const days_of_the_week = ["Week","Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"]
+        const days_of_the_week = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"]
 
-        days_of_the_week.map((day)=>{
-            row.push(<th>{day}</th>);
-        })
-        schedule.push(<tr className="regime-schedule-header" >{row}</tr>);
+        regime_schedule["routine"].map((week,i) =>{
 
-        regime_schedule["routine"].map((day,i) =>{
-            if(i % 7 == 0){
-                weekNum += 1;
-                row = [<th className="regime-schedule-header">{weekNum}</th>]
-            }
-            row.push(
-            <th className="regime-table-body">
-                <ul>
-                {
-                    day.map((exercise)=>{
-                        return <li className="no-list-style"> {exercise} </li>
-                    })
-                }
-                </ul>
-            </th>)
-            if(i % 7 == 6){
-                schedule.push(
-                <tr>
-                    {row.map(day => day)}
-                </tr>
+            let row = [];
+            let schedule = [];
+            let week_display_list = [];
+
+            week_display_list.push(<h3 className="regime-routine-schedule-header"> Week {i + 1}</h3>)
+
+            days_of_the_week.map((day)=>{
+                row.push(<th>{day}</th>);
+            })
+            schedule.push(<tr className="regime-schedule-header" >{row}</tr>);
+            row = []
+
+            week["main_workout"].map((day)=>{
+                row.push(
+                    <th className="regime-table-body">
+                        <ul>
+                        {
+                            day.map((exercise) => {
+                                return <li className="no-list-style"> {exercise} </li>
+                            })
+                        }
+                        </ul>
+                    </th>
                 )
-            }
-        })
+            })
 
-        display_list.push(
-            <table className="regime-table regime-weekly-schedule">
-                {schedule.map(week => week)}
-            </table>
-        )
+            schedule.push(<tr>{row}</tr>)
+            week_display_list.push(
+                <div className="regime-weekly-schedule">
+                    <table className="regime-table regime-weekly-schedule">
+                        {schedule.map(row => row)}
+                    </table>
+                </div>
+            )
+
+            display_list.push(
+                <div className="regime-weekly">
+                    {week_display_list.map(element => element)}
+                </div>
+            )
+
+        })
 
         return display_list;
     }
 
     function displaySchedule(){
+        let display = []
+        display.push(<p className="regime-workout-description">{regime_schedule["description"]}</p>)
         switch(regime_schedule["display_type"]){
             case "daily":
-                return generate_daily();
+                display.push(generate_daily());
+                break;
             case "weekly":
-                return generate_weekly();
+                display.push(generate_weekly());
+                break;
             default:
                 console.log("We most likely just had an error");
                 return;
         }
+        return display
     }
 
     return (
@@ -162,7 +173,9 @@ function Regime() {
                         <div className="regime-routine">
                             <h2 className="regime-routine-header"> Beginner's Regime </h2>
                             {
-                                displaySchedule()
+                                (displaySchedule()).map(component => {
+                                    return component;
+                                })
                             }
                         </div>
                     </div>
