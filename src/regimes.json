@@ -230,16 +230,18 @@
         [
             {
                 "link": "https://therunexperience.com/how-to-run-correctly-running-form-tips-and-techniques/",
-                "description": "Learn how to run in the correct form."
-
+                "description": "Learn how to run in the correct form.",
+                "img":"running-1.png"
             },
             {
                 "link":"https://www.runnersworld.com/",
-                "description": "Explore running articles, workouts and products."
+                "description": "Explore running articles, workouts and products.",
+                "img":"running-2.jpg"
             },
             {
                 "link":"https://www.runnersblueprint.com/",
-                "description": "Explore different guides about running."
+                "description": "Explore different guides about running.",
+                "img":"running-3.jpg"
             }
         ]
     },
@@ -310,15 +312,18 @@
         [
             {
                 "link": "https://www.wikihow.com/Ride-a-Bicycle",
-                "description": "Learn how to ride a bicycle."
+                "description": "Learn how to ride a bicycle.",
+                "img":"cycling-1.jpg"
             },
             {
                 "link": "https://www.bicycling.com/training/a20027599/how-to-start-cycling/",
-                "description": "Learn how to get started with cycling."
+                "description": "Learn how to get started with cycling.",
+                "img":"cycling-2.jpg"
             },
             {
                 "link": "https://www.cyclingweekly.com/",
-                "description": "Stay up to date with news on cycling."
+                "description": "Stay up to date with news on cycling.",
+                "img":"cycling-3.jpg"
             }
         ]
     },
@@ -365,15 +370,18 @@
         [
             {
                 "link":"https://www.nerdfitness.com/blog/a-beginners-guide-to-crossfit/",
-                "description": "Check out this guide to crossfitting."
+                "description": "Check out this guide to crossfitting.",
+                "img":"crossfit-1.jpg"
             },
             {
                 "link":"https://www.crossfit.com/",
-                "description": "Explore crossfit workouts and the crossfit community."
+                "description": "Explore crossfit workouts and the crossfit community.",
+                "img":"crossfit-2.jpg"
             },
             {
                 "link":"https://www.crossfitenclave.com/",
-                "description":"Explore crossfit gyms."
+                "description":"Explore crossfit gyms.",
+                "img":"crossfit-3.png"
             }
 
         ]
@@ -448,15 +456,18 @@
         "links": [
             {
                 "link": "https://biostrap.com/blog/the-ultimate-beginners-7-day-guide-to-calisthenics/",
-                "description": "Check out this 7-day guide on calisthenics."
+                "description": "Check out this 7-day guide on calisthenics.",
+                "img":"calisthenics-1.jpg"
             },
             {
                 "link": "https://www.menshealth.com/uk/building-muscle/a759641/complete-guide-to-calisthenics-everything-you-need-to-know/",
-                "description": "Learn more about how to build mass with calisthenics."
+                "description": "Learn more about how to build mass with calisthenics.",
+                "img":"calisthenics-2.jpg"
             },
             {
                 "link": "https://www.bodybuilding.com/content/what-is-the-best-calisthenics-workout.html",
-                "description": "Explore this calisthenics workout."
+                "description": "Explore this calisthenics workout.",
+                "img":"calisthenics-3.jpg"
             }
         ]
     }
