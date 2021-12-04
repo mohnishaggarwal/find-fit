@@ -104,6 +104,11 @@ body {
     color: #FFCB05;
 }
 
+.questions-nav-buttons:hover{
+    color: #ffe684;
+    background-color: #0000F0;
+}
+
 .questions-nav-buttons-disabled {
     width: 232px;
     height: 64px;
