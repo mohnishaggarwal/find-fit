@@ -114,3 +114,8 @@
     padding: 5px;
     top: -70px;
 }
+
+.options-button:hover{
+    color: #ffe684;
+    background-color: #0000F0;
+}

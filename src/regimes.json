@@ -8,6 +8,7 @@
                 "warmup": [],
                 "main_workout": ["Exercise(s)", "Sets", "Reps"]
             },
+            "description": "",
             "routine": [
                 { 
                     "warmup": [],
@@ -44,15 +45,18 @@
         [
             {
                 "link": "https://www.bodybuilding.com/",
-                "description": "Explore other workouts, articles and bodybuilding products."
+                "description": "Explore other workouts, articles and bodybuilding products.",
+                "img": "bodybuilding-1.png"
             },
             {
                 "link": "https://www.menshealth.com/uk/building-muscle/a759236/complete-guide-to-bodybuilding/",
-                "description": "Learn everything you need to know about bodybuilding."
+                "description": "Learn everything you need to know about bodybuilding.",
+                "img": "bodybuilding-2.jpg"
             },
             {
                 "link" :"https://www.youtube.com/user/gregdoucette",
-                "description": "A youtube channel for new bodybuilders."
+                "description": "A youtube channel for new bodybuilders.",
+                "img": "bodybuilding-3.jpg"
             }
         ]
     },
@@ -66,6 +70,7 @@
                 "warmup": ["Exercise(s)", "Sets", "Time (s)"],
                 "main_workout": ["Exercise(s)", "Sets", "Reps"]
             },
+            "description": "",
             "routine": [
                 {
                     "warmup": 
@@ -113,16 +118,19 @@
         "links": 
         [
             {
-                "link":"https://www.coachmag.co.uk/barbell-Exercise(s)s/5888/how-to-start-powerlifting",
-                "description": "A resource to get started with powerlifting."
+                "link":"https://www.coachmag.co.uk/barbell-exercises/5888/how-to-start-powerlifting",
+                "description": "A resource to get started with powerlifting.",
+                "img": "powerlifting-1.jpeg"
             },
             {
                 "link":"https://powerliftingtechnique.com/how-to-start-powerlifting/",
-                "description": "Another resource to get started with powerlifting."
+                "description": "Another resource to get started with powerlifting.",
+                "img": "powerlifting-2.jpg"
             },
             {
                 "link":"https://www.youtube.com/c/AlanThrall/featured",
-                "description": "A youtube channel for beginning powerlifters."
+                "description": "A youtube channel for beginning powerlifters.",
+                "img": "powerlifting-3.png"
             }
         ]
     },
@@ -136,6 +144,7 @@
                 "warmup": ["Focus", "Duration", "Rest Time (sec)"],
                 "main_workout": ["Focus", "Duration (sec)", "Rest Time (sec)"]
             },
+            "description": "",
             "routine": 
             [
                 {
@@ -178,16 +187,19 @@
         "links": 
         [
             {
-                "link":"https://www.healthline.com/health/Exercise(s)-fitness/how-to-swim",
-                "description": "Learn how to swim in different styles."
+                "link":"https://www.healthline.com/health/exercise-fitness/how-to-swim",
+                "description": "Learn how to swim in different styles.",
+                "img": "swimming-1.jpeg"
             },
             {
                 "link":"https://www.livestrong.com/article/197700-how-can-i-learn-to-swim-by-myself/",
-                "description": "Learn how to swim."
+                "description": "Learn how to swim.",
+                "img": "swimming-2.png"
             },
             {
                 "link":"https://www.usms.org/fitness-and-training/articles-and-videos/articles/how-to-swim-freestyle-in-the-pool-or-open-water",
-                "description": "Learn how to improve your swimming."
+                "description": "Learn how to improve your swimming.",
+                "img": "swimming-3.png"
             }
         ]
     },
@@ -197,31 +209,48 @@
         "description": "Running is a method of working out that aims at building on cardiovascular endurance. It helps build strong bones as it is a weight bearing exercise, strengthens muscles, burn calories, and maintains a healthy weight. Running is a unique form of exercise as it requires no equipment to get started!",
         "schedule": {
             "display_type": "weekly",
+            "description": "",
             "routine": 
             [
-                ["15 mins"], ["25 mins"], ["Rest or 15 mins"], ["25 mins"], ["Rest"], ["35 mins"], ["Rest"],
-                ["15 mins"], ["28 mins"], ["Rest or 15 mins"], ["28 mins"], ["Rest"], ["38 mins"], ["Rest"],
-                ["20 mins"], ["30 mins"], ["Rest or 15 mins"], ["30 mins"], ["Rest"], ["40 mins"], ["Rest"],
-                ["20 mins"], ["35 mins"], ["Rest or 15 mins"], ["35 mins"], ["Rest"], ["45 mins"], ["Rest"],
-                ["20 mins"], ["40 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["50 mins"], ["Rest"],
-                ["20 mins"], ["40 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["55 mins"], ["Rest"],
-                ["20 mins"], ["45 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["60 mins"], ["Rest"]
+                {
+                    "main_workout": [["15 mins"], ["25 mins"], ["Rest or 15 mins"], ["25 mins"], ["Rest"], ["35 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["15 mins"], ["28 mins"], ["Rest or 15 mins"], ["28 mins"], ["Rest"], ["38 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["20 mins"], ["30 mins"], ["Rest or 15 mins"], ["30 mins"], ["Rest"], ["40 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["20 mins"], ["35 mins"], ["Rest or 15 mins"], ["35 mins"], ["Rest"], ["45 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["20 mins"], ["40 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["50 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["20 mins"], ["40 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["55 mins"], ["Rest"]]
+                },
+                {
+                    "main_workout": [["20 mins"], ["45 mins"], ["Rest or 20 mins"], ["40 mins"], ["Rest"], ["60 mins"], ["Rest"]]
+                }
             ]
         },
         "links": 
         [
             {
                 "link": "https://therunexperience.com/how-to-run-correctly-running-form-tips-and-techniques/",
-                "description": "Learn how to run in the correct form."
-
+                "description": "Learn how to run in the correct form.",
+                "img":"running-1.png"
             },
             {
                 "link":"https://www.runnersworld.com/",
-                "description": "Explore running articles, workouts and products."
+                "description": "Explore running articles, workouts and products.",
+                "img":"running-2.jpg"
             },
             {
                 "link":"https://www.runnersblueprint.com/",
-                "description": "Explore different guides about running."
+                "description": "Explore different guides about running.",
+                "img":"running-3.jpg"
             }
         ]
     },
@@ -231,58 +260,79 @@
         "description": "Cycling, also called bicycling or biking, is the use of bicycles for transport, recreation, exercise or sport. Cycling provides a variety of health benefits. The World Health Organization (WHO) states that cycling can reduce the risk of cancers, heart disease, and diabetes that are prevalent in sedentary lifestyles. Cycling on stationary bikes have also been used as part of rehabilitation for lower limb injuries, particularly after hip surgery. Individuals who cycle regularly have also reported mental health improvements, including less perceived stress and better vitality.",
         "schedule": {
             "display_type": "weekly",
-            "routine": 
-            [
-                ["REST DAY"], 
-                ["5 min @ Z1", "35 min @Z2", "5 min @Z2"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["5 min @Z1", "35 min @Z2", "5 min @Z2"],
-                ["REST DAY"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["10min @Z1", "1 hr 10min @Z2", "10 min @Z1"],
-                ["REST DAY"], 
-                ["5 min @ Z1", "50 min @Z2", "5 min @Z2"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["5 min @Z1", "50 min @Z2", "5 min @Z2"],
-                ["REST DAY"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["10min @Z1", "1 hr 45min @Z2", "10 min @Z1"],
-                ["REST DAY"], 
-                ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["5 min @Z1", "50 min @Z2", "5 min @Z2"],
-                ["REST DAY"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["10min @Z1", "1 hr 40min @Z2", "10 min @Z1"],
-                ["REST DAY"],
-                ["REST DAY"],
-                ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["10 min @Z1", "45 min @Z3", "5 min @Z1"],
-                ["REST DAY"],
-                ["10min @Z1", "1 hr 55min @Z2", "10 min @Z1"],
-                ["REST DAY"], 
-                ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
-                ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
-                ["10 min @Z1", "45 min @Z3", "5 min @Z1"],
-                ["REST DAY"],
-                ["10min @Z1", "1 hr 10min @Z2", "10 min @Z1"],
-                ["10min @Z1", "1 hr 55min @Z2", "10 min @Z1"]
+            "description": "For clarification, \"Z\" followed by a number represents Heart Rate Training Zones. Z1 is at a heart rate where you can have a comfortable conversation. Z2 is at a heart rate that is faster, but you can still make conversation. Z3 is at a heart rate where sentences in conversations become shorter.",
+            "routine": [
+                {
+                    "main_workout": [
+                        ["REST DAY"], 
+                        ["5 min @ Z1", "35 min @Z2", "5 min @Z2"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["5 min @Z1", "35 min @Z2", "5 min @Z2"],
+                        ["REST DAY"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["10min @Z1", "1 hr 10min @Z2", "10 min @Z1"]
+                    ]
+                },
+                {
+                    "main_workout": [
+                        ["REST DAY"], 
+                        ["5 min @ Z1", "50 min @Z2", "5 min @Z2"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["5 min @Z1", "50 min @Z2", "5 min @Z2"],
+                        ["REST DAY"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["10min @Z1", "1 hr 45min @Z2", "10 min @Z1"]
+                    ]
+                },{
+                    "main_workout": [
+                        ["REST DAY"], 
+                        ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["5 min @Z1", "50 min @Z2", "5 min @Z2"],
+                        ["REST DAY"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["10min @Z1", "1 hr 40min @Z2", "10 min @Z1"]
+                    ]
+                },
+                {
+                    "main_workout": [
+                        ["REST DAY"],
+                        ["REST DAY"],
+                        ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["10 min @Z1", "45 min @Z3", "5 min @Z1"],
+                        ["REST DAY"],
+                        ["10min @Z1", "1 hr 55min @Z2", "10 min @Z1"]
+                    ]
+                },{
+                    "main_workout": [
+                        ["REST DAY"], 
+                        ["10 min @ Z1", "45 min @Z3", "5 min @Z1"],
+                        ["Choose from the following (1 hour):", "gym", "circuits", "jog/walk", "swimming", "pilates/yoga"],
+                        ["10 min @Z1", "45 min @Z3", "5 min @Z1"],
+                        ["REST DAY"],
+                        ["10min @Z1", "1 hr 10min @Z2", "10 min @Z1"],
+                        ["10min @Z1", "1 hr 55min @Z2", "10 min @Z1"]
+                    ]
+                }
             ]
         },
         "links": 
         [
             {
                 "link": "https://www.wikihow.com/Ride-a-Bicycle",
-                "description": "Learn how to ride a bicycle."
+                "description": "Learn how to ride a bicycle.",
+                "img":"cycling-1.jpg"
             },
             {
                 "link": "https://www.bicycling.com/training/a20027599/how-to-start-cycling/",
-                "description": "Learn how to get started with cycling."
+                "description": "Learn how to get started with cycling.",
+                "img":"cycling-2.jpg"
             },
             {
                 "link": "https://www.cyclingweekly.com/",
-                "description": "Stay up to date with news on cycling."
+                "description": "Stay up to date with news on cycling.",
+                "img":"cycling-3.jpg"
             }
         ]
     },
@@ -296,6 +346,7 @@
                 "warmup": [],
                 "main_workout": ["Exercise(s)"]
             },
+            "description": "",
             "routine": 
             [
                 {
@@ -328,15 +379,18 @@
         [
             {
                 "link":"https://www.nerdfitness.com/blog/a-beginners-guide-to-crossfit/",
-                "description": "Check out this guide to crossfitting."
+                "description": "Check out this guide to crossfitting.",
+                "img":"crossfit-1.jpg"
             },
             {
                 "link":"https://www.crossfit.com/",
-                "description": "Explore crossfit workouts and the crossfit community."
+                "description": "Explore crossfit workouts and the crossfit community.",
+                "img":"crossfit-2.jpg"
             },
             {
                 "link":"https://www.crossfitenclave.com/",
-                "description":"Explore crossfit gyms."
+                "description":"Explore crossfit gyms.",
+                "img":"crossfit-3.png"
             }
 
         ]
@@ -351,6 +405,7 @@
                 "warmup": [],
                 "main_workout": ["Exercise(s)", "Duration/Reps", "Cycles"]
             },
+            "description": "",
             "routine": [
                 {
                     "warmup": [],
@@ -410,15 +465,18 @@
         "links": [
             {
                 "link": "https://biostrap.com/blog/the-ultimate-beginners-7-day-guide-to-calisthenics/",
-                "description": "Check out this 7-day guide on calisthenics."
+                "description": "Check out this 7-day guide on calisthenics.",
+                "img":"calisthenics-1.jpg"
             },
             {
                 "link": "https://www.menshealth.com/uk/building-muscle/a759641/complete-guide-to-calisthenics-everything-you-need-to-know/",
-                "description": "Learn more about how to build mass with calisthenics."
+                "description": "Learn more about how to build mass with calisthenics.",
+                "img":"calisthenics-2.jpg"
             },
             {
                 "link": "https://www.bodybuilding.com/content/what-is-the-best-calisthenics-workout.html",
-                "description": "Explore this calisthenics workout."
+                "description": "Explore this calisthenics workout.",
+                "img":"calisthenics-3.jpg"
             }
         ]
     }

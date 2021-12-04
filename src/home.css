@@ -64,6 +64,11 @@
   
     color: #FFCB05;
   }
+
+  .home-begin-button:hover{
+    color: #ffe684;
+    background-color: #0000F0;
+  }
   
   .no-link-style {
     text-decoration: none;
