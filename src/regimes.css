@@ -132,6 +132,7 @@
     display: flex;
     justify-content: space-between;
     margin: auto;
+    align-items: center;
     
 }
 
@@ -287,9 +288,17 @@
 
 .regime-regime-buttons-text {
     font-size: 36px;
+    width: 80%;
+    text-align: left;
+    font-weight: normal;
 }
 
-
+/* 
+@media screen and (max-width: 1050px) {
+    .regime-regime-buttons {
+        flex-direction: column;
+    }
+} */
 
 @media screen and (max-width: 950px) {
     .regime-right {

@@ -188,7 +188,7 @@ function Regime() {
                                             {getImage(link["img"])}
                                         </a> 
                                     </div>
-                                    <p className="regime-img-description">{link["description"]}</p>
+                                    <p className="regime-img-description"><a href={link["link"]} target="_blank" className="no-link-style">{link["description"]}</a></p>
                                     
                                 </div>
                                 )
