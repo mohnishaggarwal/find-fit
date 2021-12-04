@@ -12,31 +12,31 @@
         "choices": ["Build muscle", "Gain strength", "Lose weight", "Improve general health"]
     },
     "goals-other": {
-        "question": "Mark the choices that best match your fitness goals.",
+        "question": "Mark the choices that best match your fitness goals. (select all that apply)",
         "choices": ["Gain muscle/strength", "Lose weight", "Improve general health"]
     },
     "injuries-under14-BMI-under-40": {
-        "question": "Do you have any stress fractures (from ankle to hip), calf tendonitis, patellofemoral pain, tendonitis in the arms, upper body muscle injuries",
+        "question": "Do you have any of the following injuries? (select all that apply)",
         "choices": ["stress fractures, calf tendonitis, or patellofemoral", "tendonitis in the arms or upper body muscle injuries", "None of the above listed injuries"]
     },
     "injuries-under14-BMI-over-40": {
-        "question": "Do you have any tendonitis in the arms or upper body muscle injuries?",
+        "question": "Do you have any of the following injuries? (select all that apply)",
         "choices": ["tendonitis in the arms", "upper body muscle injuries", "None of the above listed injuries"]
     },
     "injuries-14-60-BMI-under-40": {
-        "question": "Do you any bicep tears, tendonitis in the arms, rotator cuff injuries, shoulder impingement, dislocations, or achilles tendonitis",
+        "question": "Do you have any of the following injuries? (select all that apply)",
         "choices": ["bicep tears, tendonitis in the arms, rotator cuff injuries, or shoulder impingement", "dislocations", "achilles tendonitis", "None of the above listed injuries"]
     },
     "injuries-14-60-BMI-over-40": {
-        "question": "Do you any bicep tears, tendonitis in the arms, rotator cuff injuries, shoulder impingement, or dislocations?",
+        "question": "Do you have any of the following injuries? (select all that apply)",
         "choices": ["bicep tears, tendonitis in the arms, rotator cuff injuries, or shoulder impingement", "dislocations", "None of the above listed injuries"]
     },
     "injuries-over61-BMI-under-40": {
-        "question": "Do you have any back pain, stress fractures, hamstring injuries, or kneecap pain?",
+        "question": "Do you have any of the following injuries? (select all that apply)",
         "choices": ["back pain, stress fractures", "hamstring injuries, kneecap pain", "None of the above listed injuries"]
     },
     "injuries-over61-BMI-over-40": {
-        "question": "Do you have any fractures or sprains?",
+        "question": "Do you have any of the following injuries? (select all that apply)",
         "choices": ["fractures", "sprains", "None of the above listed injuries"]
     },
     "muscle-or-strength": {

@@ -5,6 +5,7 @@ import './comments.css'
 function Comments({regime}) {
     const [comments, setComments] = useState([]);
     const [userComment, setUserComment] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
 
     useEffect(() => {
         CommentsService.fetchComments(regime, setComments);
@@ -12,11 +13,23 @@ function Comments({regime}) {
 
     function submitComment(event) {
         event.preventDefault();
-        console.log(userComment);
+        //console.log(userComment);
+        if (userComment.length === 0) {
+            setErrorMsg("Cannot submit an empty comment!")
+        }
+        else {
+            CommentsService.addComment(regime, userComment);
+            setUserComment("");
+            CommentsService.fetchComments(regime, setComments);
+            setErrorMsg("")
+        }
+        /*
+        event.preventDefault();
         CommentsService.addComment(regime, userComment);
         setUserComment("");
         CommentsService.fetchComments(regime, setComments);
-
+        setErrorMsg("");
+        */
     }
 
     function handleChange(event) {
@@ -43,8 +56,8 @@ function Comments({regime}) {
                         <input type="text" value={userComment} onChange={handleChange} />
                     </label>
                     <input type="submit" value="Submit" className="submit-button"/>
+                    <p className="errorMsg">{errorMsg}</p>
                 </form>
-
             </div>
         </div>
     )

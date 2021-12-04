@@ -49,6 +49,10 @@
     margin-left: 5px;
 }
 
+.errorMsg {
+    color: red;
+}
+
 .form{
     color: darkmagenta;
 }
