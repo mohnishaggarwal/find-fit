@@ -26,26 +26,24 @@
     width: 100%;
 }
 .regime-main-body{
-    height:100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
 }
 .regime-left{
-    right: 0;
-    margin: 0;
     width: 80%;
 }
 .regime-description{
-    background-color: #FFCB05;
-    color: #000080;
-    left: 0;
-    right: 0;
-    padding: 30px;
-    margin: 0;
-    border-bottom: 5px solid;
+    width: 75%;
+    text-align: left;
+    margin-top: 15px;
+    color: #000000;
+    font-size: 16px;
+    line-height: 20px;
 }
 .regime-workout-description{
-    font-size: 24px;
+    font-size: 16px;
 }
 .regime-routine{
    height: 100%;
@@ -55,8 +53,7 @@
    text-align: center;
 }
 .regime-routine-header{
-    padding: 20px;
-    margin: 0;
+
     margin-bottom: 10px;
 }
 
@@ -74,21 +71,22 @@
 }
 
 .regime-right{
-    float:right;
-    border-left: 5px solid; 
-    right: 0;
-    top: 0;
-    width: 20%;
-    padding: 0;
-    margin: 0;    
-    background-color: #FFCB05;
     color:#000080;
     font-weight: bold;
-}
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    justify-content: space-between;
+    margin-top: 50px;
+    width: 75%;
+} 
 .regime-link-section{
-    background-color: #ffe684;
-    border-bottom: 5px solid #000080;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 .regime-link-section a{
     text-overflow: ellipsis;
@@ -98,8 +96,9 @@
 
 .regime-link-img{
     object-fit: cover;
-    height: 200px;
-    width: 100%;
+    max-height: 150px;
+    max-width: 200px;
+    
 }
 
 .regime-link-img:hover{
@@ -152,8 +151,7 @@
 }
 
 .regime-weekly{
-    border: 1px solid;
-    border-radius: 10px;
+
     margin: 10px;
 }
 
@@ -164,9 +162,14 @@
 }
 
 .regime-weekly-schedule{
-    border-radius: 0px 0px 10px 10px;
+    /* border-radius: 0px 0px 10px 10px;
     background-color: #FFCB05;
-    padding: 10px;
+    padding: 10px; */
+   
+    width: 70%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 30px;
 }
 
 .regime-weekly-schedule ul{
@@ -224,4 +227,27 @@
 
 .bolder-text{
     font-weight: bolder;
+}
+
+
+.regime-section-header {
+    font-size: 40px;
+    color: #000080;
+    margin-top: 31px;
+    width: 85%;
+    text-align: left;
+    margin: auto;
+}
+
+.regime-img-description {
+    width: 100%;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.regime-routine-subheader {
+    font-size: 30px;
+    text-align: left;
+    width: 80%;
+    margin: auto;
 }

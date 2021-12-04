@@ -97,7 +97,7 @@ function Regime() {
             let schedule = [];
             let week_display_list = [];
 
-            week_display_list.push(<h3 className="regime-routine-schedule-header"> Week {i + 1}</h3>)
+            week_display_list.push(<div className="regime-routine-subheader"> Week {i + 1}</div>)
 
             days_of_the_week.map((day)=>{
                 row.push(<th>{day}</th>);
@@ -122,7 +122,7 @@ function Regime() {
             schedule.push(<tr>{row}</tr>)
             week_display_list.push(
                 <div className="regime-weekly-schedule">
-                    <table className="regime-table regime-weekly-schedule">
+                    <table className="regime-table">
                         {schedule.map(row => row)}
                     </table>
                 </div>
@@ -171,37 +171,43 @@ function Regime() {
                 </div>
             </div>
             <div className="regime-body">
+                
                 <div className="regime-main-body">
-                    <div className="regime-left">
-                        <div className="regime-description">
-                            {regime["description"]}
-                        </div>
-                        <div className="regime-routine">
-                            <h2 className="regime-routine-header"> Beginner's Regime </h2>
-                            {
-                                (displaySchedule()).map(component => {
-                                    return component;
-                                })
-                            }
-                        </div>
+                    <div className="regime-section-header">What is {regime["name"]}?</div>
+                    <div className="regime-description">
+                        {regime["description"]}
                     </div>
+
                     <div className="regime-right">
                         {
                             regime["links"].map((link,i) => {
                                 return(
                                 <div className="regime-link-section">
-                                    <p>{link["description"]}</p>
                                     <div>
                                         <a href={link["link"]} target="_blank" key={i}>
                                             {getImage(link["img"])}
                                         </a> 
                                     </div>
+                                    <p className="regime-img-description">{link["description"]}</p>
+                                    
                                 </div>
                                 )
                             })
                         }
                     </div>
+                        
+
+                    <div className="regime-routine">
+                        <div className="regime-routine-header regime-section-header"> Beginner's Regime </div>
+                        {
+                            (displaySchedule()).map(component => {
+                                return component;
+                            })
+                        }
+                    </div>
+                
                 </div>
+                
                 <div className="regime-bottom-div">
                     <div id="regime-back">
                         <p> Curious about your other matches? </p>
