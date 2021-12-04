@@ -16,7 +16,7 @@ function Regime() {
         if (schema.length !== 0 && day.length !== 0){
             warm_up_comp = (
                 <div className="regime-warmup">
-                    <p className="left-align">Warmup:</p>   
+                    <p className="left-align regime-routine-subheader2">Warmup:</p>   
                     <table className="regime-table regime-daily-schedule">
                         <tr className="regime-schedule-header" >
                         {
@@ -30,7 +30,7 @@ function Regime() {
                                 return(
                                 <tr> 
                                     {exercise.map((col,i) => {
-                                        return <th className="regime-table-body" width={parseInt(100/schema.length) + "%"}> {col} </th>
+                                        return <td className="regime-table-body" width={parseInt(100/schema.length) + "%"}> {col} </td>
                                     })} 
                                 </tr>
                                 )
@@ -46,7 +46,7 @@ function Regime() {
     function generate_daily_main_workout(schema, day){
         return (
             <div className="regime-main-workout">
-                <p className="left-align">Main Workout:</p>
+                <p className="left-align regime-routine-subheader2">Main Workout:</p>
                 <table className="regime-table regime-daily-schedule">
                     <tr className="regime-schedule-header" >
                     {
@@ -60,7 +60,7 @@ function Regime() {
                             return(
                                 <tr> 
                                     {exercise.map((col,i) => {
-                                        return <th className="regime-table-body" width={parseInt(100/schema.length) + "%"}> {col} </th>
+                                        return <td className="regime-table-body" width={parseInt(100/schema.length) + "%"}> {col} </td>
                                     })} 
                                 </tr>
                                 )
@@ -76,9 +76,9 @@ function Regime() {
         const schema = regime_schedule["schema"]
         regime_schedule["routine"].map((day,i) =>{
             display_list.push(
-                <div className="regime-daily">
-                    <h3 className="regime-routine-schedule-header"> Day {i + 1} </h3>
-                    <div className="regime-daily-schedule">
+                <div >
+                    <h3 className="regime-routine-subheader"> Day {i + 1} </h3>
+                    <div>
                         {generate_daily_warmup(schema["warmup"],day["warmup"])}
                         {generate_daily_main_workout(schema["main_workout"], day["main_workout"])}
                     </div>
@@ -97,7 +97,7 @@ function Regime() {
             let schedule = [];
             let week_display_list = [];
 
-            week_display_list.push(<h3 className="regime-routine-schedule-header"> Week {i + 1}</h3>)
+            week_display_list.push(<div className="regime-routine-subheader"> Week {i + 1}</div>)
 
             days_of_the_week.map((day)=>{
                 row.push(<th>{day}</th>);
@@ -107,22 +107,22 @@ function Regime() {
 
             week["main_workout"].map((day)=>{
                 row.push(
-                    <th className="regime-table-body">
+                    <td className="regime-table-body">
                         <ul>
                         {
                             day.map((exercise) => {
-                                return <li className="no-list-style"> {exercise} </li>
+                                return <li> {exercise} </li>
                             })
                         }
                         </ul>
-                    </th>
+                    </td>
                 )
             })
 
             schedule.push(<tr>{row}</tr>)
             week_display_list.push(
                 <div className="regime-weekly-schedule">
-                    <table className="regime-table regime-weekly-schedule">
+                    <table className="regime-table">
                         {schedule.map(row => row)}
                     </table>
                 </div>
@@ -139,6 +139,12 @@ function Regime() {
         return display_list;
     }
 
+    function getImage(img_name){
+        return (
+            <img className="regime-link-img"
+            src={require("../img/routine-link-images/" + img_name).default}></img>
+        )
+    }
     function displaySchedule(){
         let display = []
         display.push(<p className="regime-workout-description">{regime_schedule["description"]}</p>)
@@ -165,51 +171,64 @@ function Regime() {
                 </div>
             </div>
             <div className="regime-body">
+                
                 <div className="regime-main-body">
-                    <div className="regime-left">
-                        <div className="regime-description">
-                            {regime["description"]}
-                        </div>
-                        <div className="regime-routine">
-                            <h2 className="regime-routine-header"> Beginner's Regime </h2>
-                            {
-                                (displaySchedule()).map(component => {
-                                    return component;
-                                })
-                            }
-                        </div>
+                    <div className="regime-section-header">What is {regime["name"]}?</div>
+                    <div className="regime-description">
+                        {regime["description"]}
                     </div>
+
                     <div className="regime-right">
                         {
                             regime["links"].map((link,i) => {
                                 return(
                                 <div className="regime-link-section">
-                                    <p>{link["description"]}</p>
-                                    <p>
-                                        <a href={link["link"]} key={i}>{link["link"]} </a> 
-                                    </p>
+                                    <div className="regime-three-col">
+                                        <a className="regime-link-section-link" href={link["link"]} target="_blank" key={i} >
+                                            {getImage(link["img"])}
+                                        </a> 
+                                    </div>
+                                    <p className="regime-img-description"><a href={link["link"]} target="_blank" className="no-link-style">{link["description"]}</a></p>
+                                    
                                 </div>
                                 )
                             })
                         }
                     </div>
-                </div>
-                <div className="regime-bottom-div">
-                    <div id="regime-back">
-                        <p> Curious about your other matches? </p>
-                            <div className='regime-button'>
-                                <Link className="no-link-style" to="/matching-options"> 
-                                    <div className="regime-button-text">Back</div>
-                                </Link> 
-                            </div>
+                        
+
+                    <div className="regime-routine">
+                        <div className="regime-routine-header regime-section-header"> Beginner's Regime </div>
+                        {
+                            (displaySchedule()).map(component => {
+                                return component;
+                            })
+                        }
                     </div>
-                    <div id="regime-start-over">
-                        <p> Big lifestyle changes? Take this quiz again! </p>
-                            <div className='regime-button'>
-                                <a className="no-link-style" href="/">
-                                    <div className="regime-button-text">Start Over</div>
-                                </a>
-                            </div>
+                
+                </div>
+                
+                <div className="regime-bottom-div">
+                    <div className="regime-regime-buttons-section">
+                        <div className="regime-regime-buttons">
+                            <div className="regime-regime-buttons-text"> Curious about your other matches? </div>
+                                <div className='regime-button'>
+                                    <Link className="no-link-style" to="/matching-options"> 
+                                        <div className="regime-button-text">Back</div>
+                                    </Link> 
+                                </div>
+                        </div>
+                    </div>
+
+                    <div className="regime-regime-buttons-section">
+                        <div className="regime-regime-buttons">
+                            <div className="regime-regime-buttons-text"> Big lifestyle changes? Take this quiz again! </div>
+                                <div className='regime-button'>
+                                    <a className="no-link-style" href="/">
+                                        <div className="regime-button-text">Start Over</div>
+                                    </a>
+                                </div>
+                        </div>
                     </div>
                 </div>
                 <Comments regime={regime_type}/>
