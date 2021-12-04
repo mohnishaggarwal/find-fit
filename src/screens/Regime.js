@@ -183,8 +183,8 @@ function Regime() {
                             regime["links"].map((link,i) => {
                                 return(
                                 <div className="regime-link-section">
-                                    <div>
-                                        <a href={link["link"]} target="_blank" key={i}>
+                                    <div className="regime-three-col">
+                                        <a className="regime-link-section-link" href={link["link"]} target="_blank" key={i} >
                                             {getImage(link["img"])}
                                         </a> 
                                     </div>
@@ -209,21 +209,26 @@ function Regime() {
                 </div>
                 
                 <div className="regime-bottom-div">
-                    <div id="regime-back">
-                        <p> Curious about your other matches? </p>
-                            <div className='regime-button'>
-                                <Link className="no-link-style" to="/matching-options"> 
-                                    <div className="regime-button-text">Back</div>
-                                </Link> 
-                            </div>
+                    <div className="regime-regime-buttons-section">
+                        <div className="regime-regime-buttons">
+                            <div className="regime-regime-buttons-text"> Curious about your other matches? </div>
+                                <div className='regime-button'>
+                                    <Link className="no-link-style" to="/matching-options"> 
+                                        <div className="regime-button-text">Back</div>
+                                    </Link> 
+                                </div>
+                        </div>
                     </div>
-                    <div id="regime-start-over">
-                        <p> Big lifestyle changes? Take this quiz again! </p>
-                            <div className='regime-button'>
-                                <a className="no-link-style" href="/">
-                                    <div className="regime-button-text">Start Over</div>
-                                </a>
-                            </div>
+
+                    <div className="regime-regime-buttons-section">
+                        <div className="regime-regime-buttons">
+                            <div className="regime-regime-buttons-text"> Big lifestyle changes? Take this quiz again! </div>
+                                <div className='regime-button'>
+                                    <a className="no-link-style" href="/">
+                                        <div className="regime-button-text">Start Over</div>
+                                    </a>
+                                </div>
+                        </div>
                     </div>
                 </div>
                 <Comments regime={regime_type}/>
