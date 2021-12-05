@@ -13,7 +13,6 @@ function Comments({regime}) {
 
     function submitComment(event) {
         event.preventDefault();
-        //console.log(userComment);
         if (userComment.length === 0) {
             setErrorMsg("Cannot submit an empty comment!")
         }
@@ -23,13 +22,21 @@ function Comments({regime}) {
             CommentsService.fetchComments(regime, setComments);
             setErrorMsg("")
         }
-        /*
+    }
+
+    function submitCommentEnter(event) {
         event.preventDefault();
-        CommentsService.addComment(regime, userComment);
-        setUserComment("");
-        CommentsService.fetchComments(regime, setComments);
-        setErrorMsg("");
-        */
+        if (event.keyCode === 13) {
+            if (userComment.length === 0) {
+                setErrorMsg("Cannot submit an empty comment!")
+            }
+            else {
+                CommentsService.addComment(regime, userComment);
+                setUserComment("");
+                CommentsService.fetchComments(regime, setComments);
+                setErrorMsg("")
+            }
+        }
     }
 
     function handleChange(event) {
@@ -45,14 +52,15 @@ function Comments({regime}) {
                     comments.map((comment, idx) => {
                         return (
                             <div key={idx} className="comment">
-                                <b className="anon">Anonymous:&nbsp;</b>{comment}
+                                <p><b className="anon">Anonymous:&nbsp;</b>{comment.comment}</p>
+                                <p>{(comment.time.getMonth()+1).toString()}/{comment.time.getUTCDate().toString()}/{comment.time.getFullYear().toString()}</p>
                             </div>
                         )
                     })
                 }
                 <form onSubmit={submitComment} className="form">
                     <label>
-                        <b>Submit an anonymous comment: &nbsp;</b>
+                        <b onKeyDown={submitCommentEnter}>Submit an anonymous comment: &nbsp;</b>
                         <input type="text" value={userComment} onChange={handleChange} />
                     </label>
                     <input type="submit" value="Submit" className="submit-button"/>
